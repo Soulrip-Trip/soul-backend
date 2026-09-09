@@ -1,0 +1,47 @@
+# Harness Pack File Index
+
+이 문서는 ZIP에 포함된 파일 목록이다.
+
+- `.github/copilot-instructions.md`
+- `.github/instructions/ai.instructions.md`
+- `.github/instructions/app-entry.instructions.md`
+- `.github/instructions/config.instructions.md`
+- `.github/instructions/data-import.instructions.md`
+- `.github/instructions/data.instructions.md`
+- `.github/instructions/database.instructions.md`
+- `.github/instructions/deployment.instructions.md`
+- `.github/instructions/routers.instructions.md`
+- `.github/instructions/schemas.instructions.md`
+- `.github/instructions/services.instructions.md`
+- `.github/prompts/ai-insight-feature.prompt.md`
+- `.github/prompts/bugfix.prompt.md`
+- `.github/prompts/chatbot-feature.prompt.md`
+- `.github/prompts/community-feature.prompt.md`
+- `.github/prompts/course-feature.prompt.md`
+- `.github/prompts/data-import.prompt.md`
+- `.github/prompts/database-change.prompt.md`
+- `.github/prompts/deploy-check.prompt.md`
+- `.github/prompts/festival-feature.prompt.md`
+- `.github/prompts/new-api.prompt.md`
+- `.github/prompts/place-feature.prompt.md`
+- `.github/prompts/refactor.prompt.md`
+- `.github/prompts/review.prompt.md`
+- `.github/prompts/travel-record-feature.prompt.md`
+- `AGENTS.md`
+- `README.md`
+- `docs/harness/ARCHITECTURE.md`
+- `docs/harness/FEATURE_MAP.md`
+- `docs/harness/PROJECT_CONTEXT.md`
+- `docs/harness/PROMPT_CHEATSHEET.md`
+- `docs/harness/README.md`
+- `docs/harness/VERIFICATION_CHECKLIST.md`
+- `docs/harness/WORKFLOW.md`
+- `docs/harness/features/ai-insights.md`
+- `docs/harness/features/chatbot.md`
+- `docs/harness/features/community.md`
+- `docs/harness/features/courses.md`
+- `docs/harness/features/data-import.md`
+- `docs/harness/features/festivals.md`
+- `docs/harness/features/fullstack-contract.md`
+- `docs/harness/features/places.md`
+- `docs/harness/features/travel-records.md`
