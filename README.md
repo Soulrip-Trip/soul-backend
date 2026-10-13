@@ -11,8 +11,8 @@ Soulrip은 서울 지역 공공 관광 데이터를 혼행 사용자의 관점�
 
 | Repository | Role | Link |
 | --- | --- | --- |
-| Frontend | Vue 3 기반 사용자 화면과 상호작용 | https://github.com/skyblue1232/soulrip-frontend |
-| Backend | FastAPI 기반 REST API, 데이터 처리, AI 연동 | https://github.com/skyblue1232/soulrip-backend |
+| Frontend | Vue 3 기반 사용자 화면과 상호작용 | https://github.com/Soulrip-Trip/soul-frontend |
+| Backend | FastAPI 기반 REST API, 데이터 처리, AI 연동 | https://github.com/Soulrip-Trip/soul-backend |
 
 두 저장소는 하나의 Soulrip 서비스를 구성한다. 프론트엔드는 사용자 경험과 화면 상태를 담당하고, 백엔드는 데이터 조회·가공·영속화와 외부 AI API 연동을 담당한다.
 
