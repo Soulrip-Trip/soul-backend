@@ -22,11 +22,22 @@ SQLite
 
 ### Application
 
-`app/main.py`가 앱 인스턴스, CORS, Router 등록을 담당한다.
+`app/main.py`가 앱 인스턴스, lifespan(DB·인덱스 보장, 공유 HTTP 클라이언트, RAG 인덱스 로드), 미들웨어(ProcessTime → CORS → GZip), Router 등록을 담당한다.
 
 ### Core
 
-`app/core/config.py`가 DB URL, API prefix, CORS, AI provider key/model, admin key를 관리한다.
+- `config.py`: DB URL, API prefix, CORS, AI provider key/model, RAG 모드, 캐시 TTL, admin key
+- `cache.py`: 프로세스 메모리 LRU+TTL 캐시(chat, meta, ai-insight, rag)
+- `http_client.py`: 외부 호출용 공유 `httpx.AsyncClient`
+- `middleware.py`: `X-Process-Time` 순수 ASGI 미들웨어
+
+### Sync / Async 원칙
+
+DB 중심 endpoint는 `def`(스레드풀 실행)로 둔다. 외부 AI를 기다리는 `/chat`, `/ai-insights`만 `async def`이고, 내부의 동기 DB 작업은 `anyio.to_thread`로 넘긴다.
+
+### RAG
+
+`rag-server/`가 원천 자료(`data/`), 빌드 결과(`index/`), 검색 패키지(`rag/`)를 가진다. 백엔드는 `RAG_MODE=embedded`일 때 인덱스를 프로세스에 직접 로드하고, `remote`일 때 rag-server API를 호출한다. 어떤 경우든 RAG 실패는 챗봇 실패가 아니다.
 
 ### Router
 

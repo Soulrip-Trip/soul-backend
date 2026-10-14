@@ -45,3 +45,5 @@
 - `docs/harness/features/fullstack-contract.md`
 - `docs/harness/features/places.md`
 - `docs/harness/features/travel-records.md`
+- `docs/frontend-rag-integration.md` — 프론트엔드 RAG 챗봇·오류 코드 연동 가이드
+- `rag-server/README.md` — RAG 데이터·인덱스·검색 API 문서
