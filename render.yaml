@@ -2,8 +2,13 @@ services:
   - type: web
     name: soulrip-api
     runtime: python
+    # RAG 인덱스(rag-server/index)는 저장소에 커밋된 빌드 결과를 그대로 사용한다.
+    # 원천 자료가 바뀌면 로컬에서 `python -m scripts.build_index`(rag-server)로 다시 빌드해 커밋한다.
     buildCommand: pip install -r requirements.txt && python -m scripts.seed_data
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    # uvloop(리눅스)과 httptools가 설치되어 있으면 uvicorn이 자동으로 사용한다(--loop auto, --http auto).
+    # 워커 수는 WEB_CONCURRENCY로 조절한다. SQLite + 프로세스 캐시 구조라 기본 1을 권장한다.
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips "*" --timeout-keep-alive 30
+    healthCheckPath: /api/v1/health
     envVars:
       - key: DATABASE_URL
         value: sqlite:///./soulrip.db
@@ -13,5 +18,11 @@ services:
         sync: false
       - key: GEMINI_MODEL
         value: gemini-3.5-flash
+      - key: OPENAI_API_KEY
+        sync: false
       - key: ADMIN_KEY
         sync: false
+      - key: RAG_MODE
+        value: embedded
+      - key: WEB_CONCURRENCY
+        value: "1"
