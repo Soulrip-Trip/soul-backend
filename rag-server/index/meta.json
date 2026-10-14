@@ -1,0 +1,279 @@
+{
+  "built_at": "2026-10-14T06:27:48+00:00",
+  "event_cutoff": "2026-10-14",
+  "source_fingerprint": "4f0153f06cf6cc32",
+  "embedding_model": null,
+  "embedding_dimension": null,
+  "documents": [
+    {
+      "id": "survey-2024-domestic-overview",
+      "title": "2024 서울관광 실태조사(내국인) 조사개요",
+      "indexed": true,
+      "collection": "survey_report",
+      "year": 2024,
+      "audience": "domestic",
+      "status": "confirmed",
+      "chunks": 3,
+      "chars": 1866
+    },
+    {
+      "id": "survey-2024-domestic-report",
+      "title": "2024 서울관광 실태조사(내국인) 최종보고서",
+      "indexed": true,
+      "collection": "survey_report",
+      "year": 2024,
+      "audience": "domestic",
+      "status": "confirmed",
+      "chunks": 186,
+      "chars": 133253
+    },
+    {
+      "id": "survey-2024-domestic-questionnaire",
+      "title": "2024 서울관광 실태조사(내국인) 설문지",
+      "indexed": false,
+      "reason": "설문 문항 원문은 결과 수치가 없어 답변 근거로 쓰기 어렵고 검색 노이즈만 늘린다."
+    },
+    {
+      "id": "survey-2024-domestic-stats",
+      "title": "2024 서울관광 실태조사(내국인) 통계표",
+      "indexed": true,
+      "collection": "survey_stats",
+      "year": 2024,
+      "audience": "domestic",
+      "status": "confirmed",
+      "chunks": 370,
+      "chars": 424093
+    },
+    {
+      "id": "survey-2024-domestic-codebook",
+      "title": "2024 서울관광 실태조사(내국인) 코드북",
+      "indexed": false,
+      "reason": "원자료 변수 코드 정의서로, 원자료를 직접 분석할 때만 필요하다."
+    },
+    {
+      "id": "survey-2024-foreign-overview",
+      "title": "2024 서울관광 실태조사(외국인) 조사개요",
+      "indexed": true,
+      "collection": "survey_report",
+      "year": 2024,
+      "audience": "foreign",
+      "status": "confirmed",
+      "chunks": 4,
+      "chars": 2297
+    },
+    {
+      "id": "survey-2024-foreign-report",
+      "title": "2024 서울관광 실태조사(외국인) 최종보고서",
+      "indexed": true,
+      "collection": "survey_report",
+      "year": 2024,
+      "audience": "foreign",
+      "status": "confirmed",
+      "chunks": 378,
+      "chars": 280116
+    },
+    {
+      "id": "survey-2024-foreign-questionnaire",
+      "title": "2024 서울관광 실태조사(외국인) 설문지",
+      "indexed": false,
+      "reason": "설문 문항 원문은 결과 수치가 없어 답변 근거로 쓰기 어렵고 검색 노이즈만 늘린다."
+    },
+    {
+      "id": "survey-2024-foreign-stats",
+      "title": "2024 서울관광 실태조사(외국인) 통계표",
+      "indexed": true,
+      "collection": "survey_stats",
+      "year": 2024,
+      "audience": "foreign",
+      "status": "confirmed",
+      "chunks": 867,
+      "chars": 1034985
+    },
+    {
+      "id": "survey-2024-foreign-codebook",
+      "title": "2024 서울관광 실태조사(외국인) 코드북",
+      "indexed": false,
+      "reason": "원자료 변수 코드 정의서로, 원자료를 직접 분석할 때만 필요하다."
+    },
+    {
+      "id": "survey-2025-domestic-report",
+      "title": "2025 서울관광 실태조사(내국인) 보고서",
+      "indexed": true,
+      "collection": "survey_report",
+      "year": 2025,
+      "audience": "domestic",
+      "status": "confirmed",
+      "chunks": 388,
+      "chars": 275056
+    },
+    {
+      "id": "survey-2025-domestic-stats",
+      "title": "2025 서울관광 실태조사(내국인) 통계표",
+      "indexed": true,
+      "collection": "survey_stats",
+      "year": 2025,
+      "audience": "domestic",
+      "status": "confirmed",
+      "chunks": 1076,
+      "chars": 1332894
+    },
+    {
+      "id": "survey-2025-foreign-report",
+      "title": "2025 서울관광 실태조사(외국인) 보고서",
+      "indexed": true,
+      "collection": "survey_report",
+      "year": 2025,
+      "audience": "foreign",
+      "status": "confirmed",
+      "chunks": 402,
+      "chars": 292106
+    },
+    {
+      "id": "survey-2025-foreign-infographic",
+      "title": "2025 서울관광 실태조사(외국인) 인포그래픽",
+      "indexed": true,
+      "collection": "survey_report",
+      "year": 2025,
+      "audience": "foreign",
+      "status": "confirmed",
+      "chunks": 3,
+      "chars": 1970
+    },
+    {
+      "id": "survey-2025-foreign-stats",
+      "title": "2025 서울관광 실태조사(외국인) 통계표",
+      "indexed": true,
+      "collection": "survey_stats",
+      "year": 2025,
+      "audience": "foreign",
+      "status": "confirmed",
+      "chunks": 940,
+      "chars": 1072244
+    },
+    {
+      "id": "survey-2026-foreign-preliminary",
+      "title": "2026 서울관광 실태조사(외국인) 잠정치 보고서(4차/8월)",
+      "indexed": true,
+      "collection": "survey_report",
+      "year": 2026,
+      "audience": "foreign",
+      "status": "preliminary",
+      "chunks": 143,
+      "chars": 98948
+    },
+    {
+      "id": "survey-foreign-2019-2025-codes",
+      "title": "서울관광 실태조사(외국인) 2019~2025 통합데이터 코드표",
+      "indexed": false,
+      "reason": "연도별 문항 코드 대응표로, 통합 통계표를 해석할 때 참고용이다."
+    },
+    {
+      "id": "survey-foreign-2019-2025-stats",
+      "title": "서울관광 실태조사(외국인) 2019~2025 통합 통계표",
+      "indexed": true,
+      "collection": "survey_stats",
+      "year": null,
+      "audience": "foreign",
+      "status": "confirmed",
+      "chunks": 875,
+      "chars": 980217
+    },
+    {
+      "id": "raw-2024-domestic",
+      "title": "2024 서울관광 실태조사(내국인) 원자료",
+      "indexed": false,
+      "reason": "응답자 단위 원자료(microdata)다. 질문 응답에는 집계된 통계표를 사용한다. 같은 폴더의 .SAV도 동일 데이터다."
+    },
+    {
+      "id": "raw-2024-foreign",
+      "title": "2024 서울관광 실태조사(외국인) 원자료",
+      "indexed": false,
+      "reason": "응답자 단위 원자료(microdata)다. 질문 응답에는 집계된 통계표를 사용한다. 같은 폴더의 .SAV도 동일 데이터다."
+    },
+    {
+      "id": "raw-2025-domestic",
+      "title": "2025 서울관광 실태조사(내국인) 원자료",
+      "indexed": false,
+      "reason": "응답자 단위 원자료(microdata)다. 질문 응답에는 집계된 통계표를 사용한다."
+    },
+    {
+      "id": "raw-2025-foreign",
+      "title": "2025 서울관광 실태조사(외국인) 원자료",
+      "indexed": false,
+      "reason": "응답자 단위 원자료(microdata)다. 질문 응답에는 집계된 통계표를 사용한다. 같은 폴더의 .sav도 동일 데이터다."
+    },
+    {
+      "id": "raw-foreign-2019-2025",
+      "title": "서울관광 실태조사(외국인) 2019~2025 통합 Raw Data",
+      "indexed": false,
+      "reason": "응답자 단위 원자료(microdata)다. 연도별 비교에는 통합 통계표를 사용한다."
+    },
+    {
+      "id": "seoul-attractions",
+      "title": "서울시 관광 명소",
+      "indexed": true,
+      "collection": "place",
+      "year": null,
+      "audience": "all",
+      "status": "reference",
+      "chunks": 508,
+      "chars": 117225
+    },
+    {
+      "id": "seoul-culture-spaces",
+      "title": "서울시 문화공간 정보",
+      "indexed": true,
+      "collection": "place",
+      "year": null,
+      "audience": "all",
+      "status": "reference",
+      "chunks": 1093,
+      "chars": 456749
+    },
+    {
+      "id": "seoul-culture-events",
+      "title": "서울시 문화행사 정보",
+      "indexed": true,
+      "collection": "event",
+      "year": null,
+      "audience": "all",
+      "status": "reference",
+      "chunks": 381,
+      "chars": 112654
+    },
+    {
+      "id": "seoul-district-tourism",
+      "title": "서울 자치구 길관광·관광지·지역특화거리 정보",
+      "indexed": true,
+      "collection": "place",
+      "year": null,
+      "audience": "all",
+      "status": "reference",
+      "chunks": 260,
+      "chars": 91367
+    },
+    {
+      "id": "seoul-tourism-analytics",
+      "title": "서울 관광지 방문자·체류·이동 데이터",
+      "indexed": true,
+      "collection": "analytics",
+      "year": null,
+      "audience": "all",
+      "status": "reference",
+      "chunks": 67,
+      "chars": 24146
+    }
+  ],
+  "collections": {
+    "survey_report": 1507,
+    "survey_stats": 4128,
+    "place": 1861,
+    "event": 381,
+    "analytics": 67
+  },
+  "terms": 52483,
+  "postings": 1214708,
+  "format_version": 1,
+  "chunks": 7944,
+  "dense": false
+}
