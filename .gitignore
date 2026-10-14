@@ -6,3 +6,11 @@ venv/
 .pytest_cache/
 .vscode/
 .DS_Store
+
+# SQLite WAL 모드 실행 중 생성되는 보조 파일
+*.db-wal
+*.db-shm
+
+# RAG: 응답자 단위 원자료(microdata)는 색인하지 않고 용량이 커서(약 66MB) 저장소에 올리지 않는다.
+rag-server/data/raw/
+rag-server/.env
