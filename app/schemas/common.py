@@ -31,6 +31,7 @@ class HealthResponse(CamelModel):
     status: str
     app: str
     database: str
+    rag: str = "off"
 
 
 class ErrorResponse(CamelModel):

@@ -17,11 +17,14 @@ class ChatRequest(CamelModel):
 
 
 class ChatSource(CamelModel):
+    # LOCATION / FESTIVAL / POST: Soulrip DB, REPORT / EVENT / PLACE_INFO / DATA: RAG 근거
     type: str
     id: str
     title: str
     subtitle: str
     image_url: str = ""
+    # RAG 근거의 외부 상세 페이지(문화포털·visitseoul 등). DB 출처는 빈 값
+    url: str = ""
 
 
 class ChatResponse(CamelModel):
