@@ -25,8 +25,21 @@ from app.schemas.post import (
 router = APIRouter(prefix="/posts", tags=["community"])
 
 
-def _post_out(db: Session, post: Post) -> PostOut:
-    comment_count = db.scalar(select(func.count()).select_from(Comment).where(Comment.post_id == post.id)) or 0
+def _comment_counts(db: Session, post_ids: list[int]) -> dict[int, int]:
+    """목록의 댓글 수를 GROUP BY 한 번으로 계산한다(게시글마다 COUNT 쿼리를 날리는 N+1 방지)."""
+    if not post_ids:
+        return {}
+    rows = db.execute(
+        select(Comment.post_id, func.count(Comment.id))
+        .where(Comment.post_id.in_(post_ids))
+        .group_by(Comment.post_id)
+    ).all()
+    return {post_id: count for post_id, count in rows}
+
+
+def _post_out(db: Session, post: Post, comment_count: int | None = None) -> PostOut:
+    if comment_count is None:
+        comment_count = db.scalar(select(func.count()).select_from(Comment).where(Comment.post_id == post.id)) or 0
     try:
         tags = json.loads(post.tags_json or "[]")
     except json.JSONDecodeError:
@@ -77,8 +90,9 @@ def list_posts(
         stmt = stmt.order_by(Post.created_at.desc())
 
     items = db.scalars(stmt.offset((page - 1) * limit).limit(limit)).all()
+    comment_counts = _comment_counts(db, [item.id for item in items])
     return PostListResponse(
-        items=[_post_out(db, item) for item in items],
+        items=[_post_out(db, item, comment_counts.get(item.id, 0)) for item in items],
         meta=PaginationMeta(total=total, page=page, size=limit, pages=max(1, math.ceil(total / limit))),
     )
 

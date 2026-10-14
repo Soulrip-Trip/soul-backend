@@ -16,13 +16,29 @@ from app.services.serializers import place_out
 router = APIRouter(prefix="/travel-records", tags=["travel-records"])
 
 
-def _record_out(db: Session, record: TravelRecord) -> TravelRecordOut:
+def _record_items(db: Session, record_ids: list[int]) -> dict[int, list[tuple[TravelRecordItem, Location]]]:
+    """여러 기록의 장소 목록을 JOIN 한 번으로 가져온다(기록마다 조회하는 N+1 방지)."""
+    if not record_ids:
+        return {}
     rows = db.execute(
         select(TravelRecordItem, Location)
         .join(Location, TravelRecordItem.location_id == Location.id)
-        .where(TravelRecordItem.record_id == record.id)
-        .order_by(TravelRecordItem.stop_order.asc())
+        .where(TravelRecordItem.record_id.in_(record_ids))
+        .order_by(TravelRecordItem.record_id.asc(), TravelRecordItem.stop_order.asc())
     ).all()
+    items: dict[int, list[tuple[TravelRecordItem, Location]]] = {}
+    for item, location in rows:
+        items.setdefault(item.record_id, []).append((item, location))
+    return items
+
+
+def _record_out(
+    db: Session,
+    record: TravelRecord,
+    rows: list[tuple[TravelRecordItem, Location]] | None = None,
+) -> TravelRecordOut:
+    if rows is None:
+        rows = _record_items(db, [record.id]).get(record.id, [])
     return TravelRecordOut(
         id=record.id,
         client_id=record.client_id,
@@ -49,8 +65,15 @@ def _replace_items(db: Session, record: TravelRecord, items) -> None:
         db.delete(existing)
     db.flush()
 
+    # 장소를 content_id IN (...) 한 번으로 조회한다.
+    content_ids = {item.content_id for item in items}
+    locations = {
+        location.content_id: location
+        for location in db.scalars(select(Location).where(Location.content_id.in_(content_ids)))
+    } if content_ids else {}
+
     for index, item in enumerate(items, start=1):
-        location = db.scalar(select(Location).where(Location.content_id == item.content_id))
+        location = locations.get(item.content_id)
         if location is None:
             raise HTTPException(status_code=400, detail=f"장소 {item.content_id}를 찾을 수 없습니다.")
         db.add(
@@ -73,7 +96,11 @@ def list_records(
         .where(TravelRecord.client_id == client_id)
         .order_by(TravelRecord.visited_at.desc(), TravelRecord.created_at.desc())
     ).all()
-    return TravelRecordListResponse(items=[_record_out(db, record) for record in records], total=len(records))
+    record_items = _record_items(db, [record.id for record in records])
+    return TravelRecordListResponse(
+        items=[_record_out(db, record, record_items.get(record.id, [])) for record in records],
+        total=len(records),
+    )
 
 
 @router.post("", response_model=TravelRecordOut, status_code=201)

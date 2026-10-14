@@ -64,6 +64,8 @@ def import_locations(db: Session, data_dir: Path) -> dict[str, int]:
     imported = 0
     updated = 0
     skipped_files = 0
+    # 항목마다 SELECT 하지 않도록 기존 장소를 content_id 기준으로 한 번에 읽어 둔다.
+    existing = {location.content_id: location for location in db.scalars(select(Location))}
 
     for filename, (default_type_id, default_type_name) in CONTENT_FILES.items():
         path = data_dir / filename
@@ -84,11 +86,12 @@ def import_locations(db: Session, data_dir: Path) -> dict[str, int]:
             if not content_id or not title:
                 continue
 
-            location = db.scalar(select(Location).where(Location.content_id == content_id))
+            location = existing.get(content_id)
             is_new = location is None
             if is_new:
                 location = Location(content_id=content_id)
                 db.add(location)
+                existing[content_id] = location
 
             location.content_type_id = int(item.get("contenttypeid") or content_type_id)
             location.content_type = content_type_name
@@ -138,10 +141,14 @@ def import_festival_schedules(db: Session, data_dir: Path) -> dict[str, int]:
 
     imported = 0
     skipped = 0
+    location_ids = dict(db.execute(select(Location.content_id, Location.id)).all())
+    existing = set(db.execute(
+        select(FestivalSchedule.location_id, FestivalSchedule.start_date, FestivalSchedule.end_date)
+    ).all())
     for item in payload:
         content_id = str(item.get("contentId") or "")
-        location = db.scalar(select(Location).where(Location.content_id == content_id))
-        if location is None:
+        location_id = location_ids.get(content_id)
+        if location_id is None:
             skipped += 1
             continue
 
@@ -152,19 +159,14 @@ def import_festival_schedules(db: Session, data_dir: Path) -> dict[str, int]:
             skipped += 1
             continue
 
-        exists = db.scalar(
-            select(FestivalSchedule).where(
-                FestivalSchedule.location_id == location.id,
-                FestivalSchedule.start_date == start_date,
-                FestivalSchedule.end_date == end_date,
-            )
-        )
-        if exists:
+        key = (location_id, start_date, end_date)
+        if key in existing:
             continue
+        existing.add(key)
 
         db.add(
             FestivalSchedule(
-                location_id=location.id,
+                location_id=location_id,
                 start_date=start_date,
                 end_date=end_date,
                 category=item.get("category"),
