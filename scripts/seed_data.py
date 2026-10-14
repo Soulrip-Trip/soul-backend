@@ -2,7 +2,7 @@ from pathlib import Path
 
 from sqlalchemy import func, select
 
-from app.db.database import Base, SessionLocal, engine
+from app.db.database import SessionLocal, init_db
 from app.db.models import Location, Post
 from app.services.importer import import_festival_schedules, import_locations
 
@@ -382,7 +382,7 @@ def seed_sample_posts(db):
     print(f"게시글 {len(new_posts)}개 추가 완료")
 
 def main():
-    Base.metadata.create_all(bind=engine)
+    init_db()
     with SessionLocal() as db:
         location_result = import_locations(db, DATA_DIR)
         schedule_result = import_festival_schedules(db, DATA_DIR)

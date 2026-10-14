@@ -6,6 +6,7 @@ from sqlalchemy import (
     DateTime,
     Float,
     ForeignKey,
+    Index,
     Integer,
     String,
     Text,
@@ -18,6 +19,12 @@ from app.db.database import Base
 
 class Location(Base):
     __tablename__ = "locations"
+    __table_args__ = (
+        # 유형별 목록 + 최신순 정렬(places, courses, festivals 목록)
+        Index("ix_locations_type_modified", "content_type_id", "source_modified_at"),
+        # 주변 장소 검색의 위도·경도 범위(bounding box) 필터
+        Index("ix_locations_coords", "map_y", "map_x"),
+    )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     content_id: Mapped[str] = mapped_column(String(32), unique=True, index=True)
@@ -69,6 +76,7 @@ class FestivalSchedule(Base):
     __tablename__ = "festival_schedules"
     __table_args__ = (
         UniqueConstraint("location_id", "start_date", "end_date", name="uq_festival_schedule"),
+        Index("ix_festival_schedules_period", "start_date", "end_date"),
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
@@ -97,6 +105,7 @@ class CourseStop(Base):
 
 class Post(Base):
     __tablename__ = "posts"
+    __table_args__ = (Index("ix_posts_type_created", "type", "created_at"),)
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     type: Mapped[str] = mapped_column(String(30), default="GENERAL", index=True)
@@ -142,6 +151,7 @@ class PostLike(Base):
 
 class TravelRecord(Base):
     __tablename__ = "travel_records"
+    __table_args__ = (Index("ix_travel_records_client_visited", "client_id", "visited_at"),)
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     client_id: Mapped[str] = mapped_column(String(100), index=True)
