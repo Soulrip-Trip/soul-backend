@@ -9,7 +9,7 @@ Soulrip Backend에는 서로 다른 두 AI 흐름이 있다.
 
 ## Chatbot
 
-- Gemini를 사용한다.
+- OpenAI를 사용한다.
 - 먼저 DB에서 관련 장소, 축제, 게시글을 검색한다.
 - 검색 문맥만 근거로 답하도록 system instruction을 유지한다.
 - 다국어 질문은 검색을 위해 한국어 키워드로 변환할 수 있다.

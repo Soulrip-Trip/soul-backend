@@ -35,7 +35,7 @@ Deterministic Layer
 DB 검색 / 후보 필터 / 데이터 검증
 
 Generative Layer
-Gemini 또는 OpenAI 호출
+OpenAI 호출
 ```
 
 생성 모델이 실패하더라도 deterministic layer가 보존되는지 확인한다.

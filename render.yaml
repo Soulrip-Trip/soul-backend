@@ -9,9 +9,9 @@ services:
         value: sqlite:///./soulrip.db
       - key: CORS_ORIGINS
         sync: false
-      - key: GEMINI_API_KEY
+      - key: OPENAI_API_KEY
         sync: false
-      - key: GEMINI_MODEL
-        value: gemini-3.5-flash
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
       - key: ADMIN_KEY
         sync: false

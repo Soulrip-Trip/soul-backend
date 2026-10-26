@@ -1,8 +1,10 @@
+import json
 from functools import lru_cache
 from pathlib import Path
+from typing import Annotated
 
 from pydantic import field_validator
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -14,18 +16,15 @@ class Settings(BaseSettings):
 
     database_url: str = f"sqlite:///{BASE_DIR / 'soulrip.db'}"
 
-    cors_origins: list[str] = [
+    # NoDecode: 쉼표 구분 문자열을 pydantic-settings가 JSON으로 먼저 해석하다 실패하지 않게 한다.
+    cors_origins: Annotated[list[str], NoDecode] = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
     ]
 
-    # OpenAI - AI 인사이트
+    # OpenAI - 챗봇, AI 인사이트
     openai_api_key: str | None = None
     openai_model: str = "gpt-4.1-mini"
-
-    # Gemini - 챗봇 등 기존 기능
-    gemini_api_key: str | None = None
-    gemini_model: str = "gemini-3.5-flash"
 
     admin_key: str | None = None
 
@@ -40,6 +39,9 @@ class Settings(BaseSettings):
     @classmethod
     def parse_cors_origins(cls, value):
         if isinstance(value, str):
+            if value.strip().startswith("["):
+                return json.loads(value)
+
             return [
                 item.strip()
                 for item in value.split(",")

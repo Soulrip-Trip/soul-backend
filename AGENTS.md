@@ -11,7 +11,7 @@ Soulrip은 서울 공공 관광 데이터를 혼행 사용자의 관점에서 �
 - 서울 관광 JSON 데이터를 SQLite에 적재한다.
 - Vue 프론트엔드가 사용하는 REST API를 제공한다.
 - 장소, 축제, 코스, 커뮤니티, 여행 기록 도메인을 관리한다.
-- Gemini 기반 지역 정보 챗봇을 제공한다.
+- OpenAI 기반 지역 정보 챗봇을 제공한다.
 - OpenAI 기반 AI Insight를 제공한다.
 
 ## 2. Tech Stack
@@ -22,7 +22,7 @@ Soulrip은 서울 공공 관광 데이터를 혼행 사용자의 관점에서 �
 - SQLAlchemy ORM을 사용한다.
 - SQLite를 기본 DB로 사용한다.
 - `httpx`를 외부 HTTP 호출에 사용한다.
-- Gemini API와 OpenAI API를 AI 기능에 사용한다.
+- OpenAI API를 AI 기능(챗봇, AI Insight)에 사용한다.
 
 새 라이브러리는 현재 스택으로 해결하기 어려운 명확한 이유가 있을 때만 추가한다.
 
@@ -111,7 +111,7 @@ scripts/        # 시드 및 데이터 점검
 - 챗봇은 저장된 서울 데이터와 커뮤니티 검색 결과를 근거로 답한다.
 - 데이터에 없는 영업시간, 가격, 축제 날짜 등을 추측하지 않는다.
 - 최근 history는 현재 최대 10개 메시지를 AI 호출에 활용한다.
-- Gemini 키가 없거나 호출이 실패하면 fallback 응답을 유지한다.
+- OpenAI 키가 없거나 호출이 실패하면 fallback 응답을 유지한다.
 - 응답의 `sources`, `suggestions`, `used_ai` 계약을 보존한다.
 - 지원 언어는 `ko`, `en`, `ja`, `zh`, `fr`, `es`, `de` 흐름을 유지한다.
 
