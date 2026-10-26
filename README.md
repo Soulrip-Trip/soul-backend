@@ -797,6 +797,12 @@ Production    https://soulrip-backend.onrender.com/api/v1
 
 ---
 
+## Contributing
+
+브랜치 이름(`feat/…`, `fix/…`), 커밋 메시지(`type(scope): 요약`), PR 규칙과 병합 전 확인 항목은 [`CONTRIBUTING.md`](CONTRIBUTING.md)에 있다. PR을 만들면 [`.github/pull_request_template.md`](.github/pull_request_template.md)가 자동으로 채워진다. `main`에 병합하면 Render가 배포하므로 병합 전에 검증과 환경변수 등록을 끝낸다.
+
+---
+
 ## Harness Engineering
 
 이 저장소에는 AI 코딩 도구가 Soulrip Backend의 구조와 도메인 규칙을 반복해서 추론하지 않아도 되도록 하네스 문서를 함께 관리한다.
