@@ -4,7 +4,8 @@
 
 - [ ] 변경 파일의 책임이 기존 계층과 맞는가.
 - [ ] 새 import와 dependency가 실제로 필요한가.
-- [ ] `python -m compileall app scripts`가 통과하는가.
+- [ ] `python -m compileall app scripts rag-server/rag rag-server/scripts rag-server/main.py`가 통과하는가.
+- [ ] `async def` endpoint 안에서 동기 DB 작업을 직접 호출하지 않는가(`to_thread` 사용).
 
 ## API
 
@@ -16,7 +17,8 @@
 
 ## Database
 
-- [ ] 새 query가 불필요한 반복 조회를 만들지 않는가.
+- [ ] 새 query가 불필요한 반복 조회(N+1)를 만들지 않는가. 목록은 `IN`/`GROUP BY`로 묶었는가.
+- [ ] 모델에 인덱스를 추가했다면 `init_db()`가 기존 DB에도 생성하는지 확인했는가.
 - [ ] nullable 데이터가 안전하게 처리되는가.
 - [ ] 관계 데이터 삭제 영향이 확인되었는가.
 - [ ] 기존 SQLite DB에 migration이 필요한 변경인지 확인했는가.
@@ -33,6 +35,9 @@
 - [ ] AI Insight는 OpenAI와 JSON Schema 검증을 유지하는가.
 - [ ] 데이터 밖 사실을 추측하도록 prompt가 완화되지 않았는가.
 - [ ] 외부 API timeout/오류가 사용자 요청 전체를 예상치 않게 깨뜨리지 않는가.
+- [ ] RAG 근거에 연도·대상·확정/잠정 라벨이 유지되는가. 2026 자료를 확정치처럼 표기하지 않는가.
+- [ ] RAG 원천 자료를 바꿨다면 인덱스를 다시 빌드하고 `/health`의 `rag` 상태를 확인했는가.
+- [ ] 캐시를 추가했다면 TTL과 데이터 갱신 시점(시드, 게시글 작성)이 맞는가.
 - [ ] Chatbot 검색·프롬프트를 바꿨다면 `python -m scripts.chat_eval run`으로 같은 dev 평가셋 전후를 비교했고, 나빠진 질문(compare 결과)을 확인했는가.
 - [ ] 평가셋을 수정했다면 `python -m scripts.chat_eval check`가 통과하는가.
 

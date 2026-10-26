@@ -19,13 +19,25 @@ from app.services.serializers import place_out
 router = APIRouter(prefix="/courses", tags=["courses"])
 
 
-def _course_out(db: Session, course: Location) -> CourseOut:
+def _course_stops(db: Session, course_ids: list[int]) -> dict[int, list[Location]]:
+    """여러 코스의 경유지를 JOIN 한 번으로 가져온다(코스마다 조회하는 N+1 방지)."""
+    if not course_ids:
+        return {}
     rows = db.execute(
-        select(CourseStop, Location)
+        select(CourseStop.course_location_id, Location)
         .join(Location, CourseStop.place_location_id == Location.id)
-        .where(CourseStop.course_location_id == course.id)
-        .order_by(CourseStop.stop_order.asc())
+        .where(CourseStop.course_location_id.in_(course_ids))
+        .order_by(CourseStop.course_location_id.asc(), CourseStop.stop_order.asc())
     ).all()
+    stops: dict[int, list[Location]] = {}
+    for course_id, location in rows:
+        stops.setdefault(course_id, []).append(location)
+    return stops
+
+
+def _course_out(db: Session, course: Location, stops: list[Location] | None = None) -> CourseOut:
+    if stops is None:
+        stops = _course_stops(db, [course.id]).get(course.id, [])
     return CourseOut(
         id=course.id,
         content_id=course.content_id,
@@ -35,7 +47,7 @@ def _course_out(db: Session, course: Location) -> CourseOut:
         longitude=course.map_x,
         latitude=course.map_y,
         description=course.description or "",
-        stops=[place_out(location) for _, location in rows],
+        stops=[place_out(location) for location in stops],
     )
 
 
@@ -61,8 +73,9 @@ def list_courses(
         .offset((page - 1) * size)
         .limit(size)
     ).all()
+    stops = _course_stops(db, [course.id for course in courses])
     return CourseListResponse(
-        items=[_course_out(db, course) for course in courses],
+        items=[_course_out(db, course, stops.get(course.id, [])) for course in courses],
         meta=PaginationMeta(total=total, page=page, size=size, pages=max(1, math.ceil(total / size))),
     )
 

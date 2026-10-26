@@ -1,16 +1,30 @@
 import json
 from datetime import date
 
+from anyio import to_thread
 from openai import AsyncOpenAI
 from sqlalchemy import func
 from sqlalchemy.orm import Session, joinedload
 
+from app.core.cache import TTLCache
 from app.core.config import get_settings
 from app.db.models import FestivalSchedule, Location
 from app.schemas.ai_insight import TodayInsightResponse
 
 
 settings = get_settings()
+
+
+class AIInsightConfigError(RuntimeError):
+    """서버 설정(OPENAI_API_KEY) 문제. 사용자 입력 오류가 아니므로 503으로 응답한다."""
+
+
+class AIInsightDataError(RuntimeError):
+    """인사이트를 만들 관광 데이터가 없다."""
+
+
+class AIInsightResponseError(RuntimeError):
+    """OpenAI 응답이 비었거나 JSON Schema·이미지 규칙을 지키지 않았다."""
 
 
 SYSTEM_PROMPT = """
@@ -79,19 +93,37 @@ TODAY_INSIGHT_SCHEMA = {
 
 class AIInsightService:
     def __init__(self) -> None:
-        if not settings.openai_api_key:
-            raise ValueError(
-                "OPENAI_API_KEY가 설정되지 않았습니다."
-            )
+        # 모듈 import 시점에 키를 검사하면 키가 없을 때 앱 전체가 기동하지 못한다.
+        # 클라이언트는 첫 요청에서 만들고, 키가 없으면 해당 요청만 503으로 실패시킨다.
+        self._client: AsyncOpenAI | None = None
+        self._cache = TTLCache("ai-insight", maxsize=4, ttl=settings.ai_insight_cache_ttl_seconds)
 
-        self.client = AsyncOpenAI(
-            api_key=settings.openai_api_key,
-        )
+    @property
+    def client(self) -> AsyncOpenAI:
+        if not settings.openai_api_key:
+            raise AIInsightConfigError("OPENAI_API_KEY가 설정되지 않았습니다.")
+        if self._client is None:
+            self._client = AsyncOpenAI(api_key=settings.openai_api_key)
+        return self._client
 
     async def create_today_insight(
         self,
         db: Session,
     ) -> TodayInsightResponse:
+        client = self.client
+        cache_key = date.today().isoformat()
+        cached = self._cache.get(cache_key)
+        if cached is not None:
+            return cached
+
+        # 동기 SQLAlchemy 조회는 이벤트 루프를 막지 않도록 스레드에서 실행한다.
+        compact_places, compact_festivals = await to_thread.run_sync(self._load_tourism_data, db)
+        result = await self._generate(client, compact_places, compact_festivals)
+        self._cache.set(cache_key, result)
+        return result
+
+    @staticmethod
+    def _load_tourism_data(db: Session) -> tuple[list[dict], list[dict]]:
         # 이미지가 있는 일반 관광지 중 랜덤 8개
         places = (
             db.query(Location)
@@ -185,6 +217,14 @@ class AIInsightService:
             for festival in festivals
         ]
 
+        return compact_places, compact_festivals
+
+    async def _generate(
+        self,
+        client: AsyncOpenAI,
+        compact_places: list[dict],
+        compact_festivals: list[dict],
+    ) -> TodayInsightResponse:
         tourism_data = {
             "analysis_date": date.today().isoformat(),
             "places": compact_places,
@@ -192,7 +232,7 @@ class AIInsightService:
         }
 
         if not compact_places and not compact_festivals:
-            raise ValueError(
+            raise AIInsightDataError(
                 "이미지가 포함된 관광 데이터가 없습니다."
             )
 
@@ -247,7 +287,7 @@ class AIInsightService:
 - 가능하면 네 항목에서 서로 다른 이미지를 사용한다.
 """.strip()
 
-        response = await self.client.responses.create(
+        response = await client.responses.create(
             model=settings.openai_model,
             instructions=SYSTEM_PROMPT,
             input=user_prompt,
@@ -264,14 +304,14 @@ class AIInsightService:
         output_text = response.output_text.strip()
 
         if not output_text:
-            raise ValueError(
+            raise AIInsightResponseError(
                 "OpenAI 응답 내용이 비어 있습니다."
             )
 
         try:
             result = json.loads(output_text)
         except json.JSONDecodeError as error:
-            raise ValueError(
+            raise AIInsightResponseError(
                 "OpenAI 응답을 JSON으로 변환하지 못했습니다."
             ) from error
 
@@ -293,14 +333,14 @@ class AIInsightService:
             item = result.get(key)
 
             if not isinstance(item, dict):
-                raise ValueError(
+                raise AIInsightResponseError(
                     f"{key} 항목이 응답에 없습니다."
                 )
 
             image_url = item.get("image_url")
 
             if image_url not in allowed_image_urls:
-                raise ValueError(
+                raise AIInsightResponseError(
                     f"{key} 항목의 이미지 URL이 "
                     "입력 데이터에 없습니다."
                 )

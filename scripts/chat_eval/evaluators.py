@@ -115,9 +115,10 @@ def must_include(outputs: dict, reference_outputs: dict) -> dict:
 
 
 def no_unsupported_date(inputs: dict, outputs: dict) -> dict:
-    """답변의 날짜가 FestivalSchedule(실제 일정)이나 질문에 근거한 것인가.
+    """답변의 날짜가 FestivalSchedule(실제 일정), RAG 행사 근거, 질문 중 하나에 근거한 것인가.
 
-    원본 JSON의 modifiedtime은 행사 일정이 아니므로, 검색 컨텍스트에 날짜가 있어도 근거로 인정하지 않는다.
+    원본 JSON의 modifiedtime은 행사 일정이 아니므로, Soulrip DB 검색 줄에 날짜가 있어도 근거로 인정하지 않는다.
+    RAG(서울시 공공데이터)의 행사 근거에 적힌 날짜는 실제 출처가 있으므로 인정한다.
     """
     if not outputs.get("used_ai"):
         return _skipped("no_unsupported_date")
@@ -125,6 +126,7 @@ def no_unsupported_date(inputs: dict, outputs: dict) -> dict:
     for iso in outputs.get("schedule_dates", []):
         year, month, day = (int(part) for part in iso.split("-"))
         allowed.append((year, month, day))
+    allowed += [(year, month, day) for _, year, month, day in _date_tuples(outputs.get("rag_context", ""))]
     question = inputs["message"]
 
     unsupported = []
@@ -132,7 +134,9 @@ def no_unsupported_date(inputs: dict, outputs: dict) -> dict:
         if raw in question:
             continue
         supported = any(
-            (year is None or year == ay) and month == am and (day is None or day == ad)
+            (year is None or ay is None or year == ay)
+            and month == am
+            and (day is None or (ad is not None and day == ad))
             for ay, am, ad in allowed
         )
         if not supported:

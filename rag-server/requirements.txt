@@ -1,0 +1,11 @@
+# 런타임(검색 API)
+fastapi==0.139.0
+uvicorn==0.51.0
+pydantic==2.13.4
+pydantic-settings==2.14.2
+httpx==0.28.1
+numpy==2.5.4
+
+# 인덱스 빌드 전용(PDF·XLSX 파싱). 배포 서버에서 인덱스를 다시 빌드하지 않으면 생략해도 된다.
+pypdf==6.20.1
+openpyxl==3.1.5

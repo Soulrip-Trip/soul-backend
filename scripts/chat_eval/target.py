@@ -1,3 +1,5 @@
+import asyncio
+import threading
 import time
 
 from langsmith import traceable
@@ -7,6 +9,7 @@ from app.core.config import get_settings
 from app.db.database import SessionLocal
 from app.db.models import FestivalSchedule, Location
 from app.services import chat_service
+from app.services.rag_service import rag_service
 
 settings = get_settings()
 
@@ -15,12 +18,29 @@ settings = get_settings()
 MAX_ATTEMPTS = 3
 RETRY_BACKOFF_SEC = 5
 
+RAG_SECTION_HEADER = "[서울관광 실태조사·공공데이터 근거]"
+
+# 챗봇은 비동기이고 공유 HTTP 클라이언트가 특정 이벤트 루프에 묶여 있으므로,
+# 평가가 쓰는 여러 스레드가 하나의 백그라운드 이벤트 루프를 함께 사용한다.
+_loop: asyncio.AbstractEventLoop | None = None
+_loop_lock = threading.Lock()
+
+
+def _run(coroutine):
+    global _loop
+    with _loop_lock:
+        if _loop is None:
+            rag_service.startup()  # embedded RAG 인덱스를 한 번 로드한다. (서버 lifespan이 하는 일)
+            _loop = asyncio.new_event_loop()
+            threading.Thread(target=_loop.run_forever, daemon=True, name="chat-eval-loop").start()
+    return asyncio.run_coroutine_threadsafe(coroutine, _loop).result()
+
 
 @traceable(run_type="retriever", name="retrieve_context")
 def _retrieve(message: str, history: list[dict], language: str) -> dict:
     """answer_chat이 쓰는 것과 같은 검색을 수행하고, 평가에 필요한 DB 사실을 함께 돌려준다."""
     with SessionLocal() as db:
-        sources, context = chat_service.build_chat_context(db, message, language, history)
+        sources, context = _run(chat_service.build_chat_context(db, message, language, history))
 
         content_ids = [source.id for source in sources if source.type in ("LOCATION", "FESTIVAL")]
         locations = {}
@@ -53,6 +73,7 @@ def _retrieve(message: str, history: list[dict], language: str) -> dict:
             if cid in locations
         ],
         "context": context,
+        "rag_context": context.partition(RAG_SECTION_HEADER)[2],
         "schedule_dates": schedule_dates,
     }
 
@@ -60,7 +81,7 @@ def _retrieve(message: str, history: list[dict], language: str) -> dict:
 @traceable(run_type="chain", name="answer_chat")
 def _answer(message: str, history: list[dict], language: str) -> dict:
     with SessionLocal() as db:
-        response = chat_service.answer_chat(db, message, history, language)
+        response = _run(chat_service.answer_chat(db, message, history, language))
     return {"answer": response.answer, "used_ai": response.used_ai, "suggestions": response.suggestions}
 
 

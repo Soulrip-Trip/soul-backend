@@ -20,6 +20,8 @@ from app.services.serializers import place_map_out, place_out
 
 router = APIRouter(prefix="/places", tags=["places"])
 
+KM_PER_DEGREE = 110.0
+
 
 @router.get("", response_model=PlaceListResponse)
 def list_places(
@@ -107,14 +109,21 @@ def nearby_places(
     content_type: list[str] | None = Query(default=None, alias="contentType"),
     db: Session = Depends(get_db),
 ) -> NearbyPlaceResponse:
+    # 반경을 감싸는 위경도 사각형으로 먼저 거른 뒤 정확한 거리는 haversine으로 계산한다.
+    # 위도 1도 ≈ 111km보다 작은 값(110km)으로 나눠 사각형이 원을 항상 포함하도록 한다.
+    lat_delta = radius_km / KM_PER_DEGREE
+    lng_delta = radius_km / (KM_PER_DEGREE * max(math.cos(math.radians(latitude)), 0.01))
     filters = [
         Location.map_x.is_not(None),
         Location.map_y.is_not(None),
+        Location.map_y.between(latitude - lat_delta, latitude + lat_delta),
+        Location.map_x.between(longitude - lng_delta, longitude + lng_delta),
     ]
     if content_type:
         filters.append(Location.content_type.in_(content_type))
 
-    candidates = db.scalars(select(Location).where(*filters)).all()
+    # 좌표 인덱스를 타면 반환 순서가 바뀌므로, 같은 거리일 때의 순서를 기존과 같이 id 순으로 고정한다.
+    candidates = db.scalars(select(Location).where(*filters).order_by(Location.id.asc())).all()
     results: list[tuple[float, Location]] = []
     for item in candidates:
         distance = haversine_km(latitude, longitude, item.map_y, item.map_x)

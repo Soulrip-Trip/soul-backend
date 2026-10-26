@@ -23,6 +23,7 @@ Soulrip은 서울 공공 관광 데이터를 혼행 사용자의 관점에서 �
 - SQLite를 기본 DB로 사용한다.
 - `httpx`를 외부 HTTP 호출에 사용한다.
 - OpenAI API를 AI 기능(챗봇, AI Insight)에 사용한다.
+- RAG는 자체 BM25 인덱스(`rag-server`)와 `numpy`를 사용한다. 인덱스 빌드에만 `pypdf`, `openpyxl`을 사용한다.
 
 새 라이브러리는 현재 스택으로 해결하기 어려운 명확한 이유가 있을 때만 추가한다.
 
@@ -30,23 +31,26 @@ Soulrip은 서울 공공 관광 데이터를 혼행 사용자의 관점에서 �
 
 ```text
 app/
-├─ core/        # 환경설정
+├─ core/        # 환경설정, 캐시, 공유 HTTP 클라이언트, 미들웨어
 ├─ db/          # DB 연결과 모델
 ├─ routers/     # FastAPI endpoint
 ├─ schemas/     # Pydantic request/response
-├─ services/    # 도메인 서비스와 외부 API
-└─ main.py      # 앱 구성과 router 등록
+├─ services/    # 도메인 서비스와 외부 API(chat, rag, openai, ai_insight …)
+└─ main.py      # 앱 구성(lifespan, 미들웨어)과 router 등록
 
+rag-server/     # RAG 원천 자료(data/), 인덱스(index/), 검색 패키지(rag/), 빌드 스크립트, remote 모드 API
 data/           # 보완 데이터
 scripts/        # 시드 및 데이터 점검
+docs/           # 하네스, 프론트엔드 연동 가이드
 ```
 
 새 기능을 구현할 때 기존 도메인에서 가장 가까운 Router → Schema → Service → Model 흐름을 먼저 찾는다. 기존 구조를 무시한 Repository 계층, Manager 계층, 범용 Base 클래스 등을 먼저 만들지 않는다.
 
 ## 4. Layer Responsibilities
 
-- `main.py`는 FastAPI 앱 구성, CORS, Router 등록만 담당한다.
-- `core`는 환경변수와 공통 설정을 담당한다.
+- `main.py`는 FastAPI 앱 구성(lifespan, 미들웨어, CORS), Router 등록만 담당한다.
+- `core`는 환경변수, 공통 설정, 프로세스 캐시, 공유 HTTP 클라이언트를 담당한다.
+- DB 중심 endpoint는 `def`로 둔다. 외부 AI를 기다리는 endpoint만 `async def`로 두고, 그 안의 동기 DB 작업은 `anyio.to_thread`로 넘긴다.
 - `routers`는 HTTP 입력, dependency, 상태코드, 예외 매핑을 담당한다.
 - `schemas`는 외부 요청/응답 계약을 담당한다.
 - `services`는 검색, 추천, 외부 AI 호출, 직렬화, 데이터 적재 등 재사용 로직을 담당한다.
@@ -114,6 +118,16 @@ scripts/        # 시드 및 데이터 점검
 - OpenAI 키가 없거나 호출이 실패하면 fallback 응답을 유지한다.
 - 응답의 `sources`, `suggestions`, `used_ai` 계약을 보존한다.
 - 지원 언어는 `ko`, `en`, `ja`, `zh`, `fr`, `es`, `de` 흐름을 유지한다.
+- RAG는 서버 내부에서만 동작한다. 요청마다 원천 자료를 다시 읽거나 전체 자료를 프롬프트에 넣지 않고, 미리 빌드한 인덱스의 top-k 근거만 전달한다.
+- 실태조사 근거에는 연도·조사 대상·확정/잠정 라벨을 유지한다. 2026 외국인 자료는 잠정치로 답변해야 한다.
+- RAG가 실패하거나 인덱스가 없어도 DB 검색만으로 응답한다.
+
+### RAG Data
+
+- 원천 자료의 메타데이터와 색인 여부는 `rag-server/data/manifest.json`이 기준이다.
+- 응답자 원자료(`rag-server/data/raw`), 설문지, 코드북은 색인하지 않는다.
+- 원천 자료나 loader를 바꾸면 `rag-server`에서 `python -m scripts.build_index`로 인덱스를 다시 빌드하고 `index/`를 함께 커밋한다.
+- 출처 URL·제공 기관을 확인하지 못한 경우 추측해서 채우지 않고 빈 값으로 둔다.
 
 ### AI Insight
 
@@ -134,7 +148,8 @@ scripts/        # 시드 및 데이터 점검
 ## 9. Secrets and Configuration
 
 - API key, admin key, DB URL을 코드에 하드코딩하지 않는다.
-- 환경변수는 `Settings`를 통해 읽는다.
+- 환경변수는 `Settings`를 통해 읽는다(rag-server는 `RagSettings`).
+- `RAG_API_KEY` 등 내부 호출 키도 코드와 프론트엔드에 두지 않는다.
 - `.env`는 커밋하지 않는다.
 - `.env.example`에는 실제 비밀값을 넣지 않는다.
 - CORS origin을 변경하면 프론트엔드 배포 origin과 함께 검토한다.
@@ -157,7 +172,13 @@ scripts/        # 시드 및 데이터 점검
 기본 문법 검증은 다음과 같다.
 
 ```bash
-python -m compileall app scripts
+python -m compileall app scripts rag-server/rag rag-server/scripts rag-server/main.py
+```
+
+RAG 원천 자료나 검색 로직을 변경했다면 인덱스를 다시 빌드하고 `/api/v1/health`의 `rag` 값을 확인한다.
+
+```bash
+cd rag-server && python -m scripts.build_index
 ```
 
 데이터 관련 변경은 필요할 때 개발 DB에서 다음 순서로 검증한다.
