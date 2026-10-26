@@ -29,10 +29,12 @@
 
 ## AI
 
-- [ ] Chatbot은 Gemini와 검색 기반 fallback을 유지하는가.
+- [ ] Chatbot은 OpenAI와 검색 기반 fallback을 유지하는가.
 - [ ] AI Insight는 OpenAI와 JSON Schema 검증을 유지하는가.
 - [ ] 데이터 밖 사실을 추측하도록 prompt가 완화되지 않았는가.
 - [ ] 외부 API timeout/오류가 사용자 요청 전체를 예상치 않게 깨뜨리지 않는가.
+- [ ] Chatbot 검색·프롬프트를 바꿨다면 `python -m scripts.chat_eval run`으로 같은 dev 평가셋 전후를 비교했고, 나빠진 질문(compare 결과)을 확인했는가.
+- [ ] 평가셋을 수정했다면 `python -m scripts.chat_eval check`가 통과하는가.
 
 ## Full-stack
 

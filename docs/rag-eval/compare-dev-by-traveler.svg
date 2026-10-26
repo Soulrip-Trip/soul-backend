@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="204" viewBox="0 0 760 204" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+<title id="t">답변 정확도 · 여행자 유형별</title>
+<desc id="d">non_solo (n=8): baseline 75%, improved 100% / solo (n=35): baseline 71%, improved 91%</desc>
+<rect x="0.5" y="0.5" width="759" height="203" rx="10" fill="#fcfcfb" stroke="#e1e0d9"/>
+<text x="24" y="34" font-size="16" font-weight="600" fill="#0b0b0b">답변 정확도 · 여행자 유형별</text>
+<text x="24" y="54" font-size="12" fill="#52514e">dev 43문항 · 챗봇 gpt-4.1-mini · 채점 openai:gpt-4.1-mini</text>
+<rect x="24" y="64" width="10" height="10" rx="2" fill="#2a78d6"/>
+<text x="40" y="73" font-size="12" fill="#52514e">baseline</text>
+<rect x="130" y="64" width="10" height="10" rx="2" fill="#eb6834"/>
+<text x="146" y="73" font-size="12" fill="#52514e">improved</text>
+<line x1="214.0" y1="78" x2="214.0" y2="182" stroke="#c3c2b7" stroke-width="1"/>
+<text x="214.0" y="198" font-size="11" text-anchor="middle" fill="#52514e">0%</text>
+<line x1="334.5" y1="78" x2="334.5" y2="182" stroke="#e1e0d9" stroke-width="1"/>
+<text x="334.5" y="198" font-size="11" text-anchor="middle" fill="#52514e">25%</text>
+<line x1="455.0" y1="78" x2="455.0" y2="182" stroke="#e1e0d9" stroke-width="1"/>
+<text x="455.0" y="198" font-size="11" text-anchor="middle" fill="#52514e">50%</text>
+<line x1="575.5" y1="78" x2="575.5" y2="182" stroke="#e1e0d9" stroke-width="1"/>
+<text x="575.5" y="198" font-size="11" text-anchor="middle" fill="#52514e">75%</text>
+<line x1="696.0" y1="78" x2="696.0" y2="182" stroke="#e1e0d9" stroke-width="1"/>
+<text x="696.0" y="198" font-size="11" text-anchor="middle" fill="#52514e">100%</text>
+<text x="202" y="107.0" font-size="13" text-anchor="end" fill="#0b0b0b">non_solo (n=8)</text>
+<path d="M214.0,86.0 H571.5 A4,4 0 0 1 575.5,90.0 V98.0 A4,4 0 0 1 571.5,102.0 H214.0 Z" fill="#2a78d6"/>
+<text x="581.5" y="98" font-size="12" fill="#0b0b0b">75.0%</text>
+<path d="M214.0,104.0 H692.0 A4,4 0 0 1 696.0,108.0 V116.0 A4,4 0 0 1 692.0,120.0 H214.0 Z" fill="#eb6834"/>
+<text x="702.0" y="116" font-size="12" fill="#0b0b0b">100.0%</text>
+<text x="202" y="155.0" font-size="13" text-anchor="end" fill="#0b0b0b">solo (n=35)</text>
+<path d="M214.0,134.0 H554.3 A4,4 0 0 1 558.3,138.0 V146.0 A4,4 0 0 1 554.3,150.0 H214.0 Z" fill="#2a78d6"/>
+<text x="564.3" y="146" font-size="12" fill="#0b0b0b">71.4%</text>
+<path d="M214.0,152.0 H650.7 A4,4 0 0 1 654.7,156.0 V164.0 A4,4 0 0 1 650.7,168.0 H214.0 Z" fill="#eb6834"/>
+<text x="660.7" y="164" font-size="12" fill="#0b0b0b">91.4%</text>
+</svg>

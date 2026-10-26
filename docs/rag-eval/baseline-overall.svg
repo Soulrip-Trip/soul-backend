@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="348" viewBox="0 0 760 348" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+<title id="t">챗봇 평가 지표</title>
+<desc id="d">검색 적중률 (n=21): baseline 76% / 검색 조건 충족률 (n=15): baseline 45% / 답변 정확도 (n=43): baseline 72% / 근거 충실도 (n=43): baseline 88% / 답변 조건 충족률 (n=15): baseline 80% / 근거 없는 날짜 없음 (n=43): baseline 93% / 근거 없는 가격·시각 없음 (n=43): baseline 98% / 필수 정보 포함 (n=10): baseline 90%</desc>
+<rect x="0.5" y="0.5" width="759" height="347" rx="10" fill="#fcfcfb" stroke="#e1e0d9"/>
+<text x="24" y="34" font-size="16" font-weight="600" fill="#0b0b0b">챗봇 평가 지표</text>
+<text x="24" y="54" font-size="12" fill="#52514e">dev 43문항 · 챗봇 gpt-4.1-mini · 채점 openai:gpt-4.1-mini</text>
+<line x1="214.0" y1="78" x2="214.0" y2="326" stroke="#c3c2b7" stroke-width="1"/>
+<text x="214.0" y="342" font-size="11" text-anchor="middle" fill="#52514e">0%</text>
+<line x1="334.5" y1="78" x2="334.5" y2="326" stroke="#e1e0d9" stroke-width="1"/>
+<text x="334.5" y="342" font-size="11" text-anchor="middle" fill="#52514e">25%</text>
+<line x1="455.0" y1="78" x2="455.0" y2="326" stroke="#e1e0d9" stroke-width="1"/>
+<text x="455.0" y="342" font-size="11" text-anchor="middle" fill="#52514e">50%</text>
+<line x1="575.5" y1="78" x2="575.5" y2="326" stroke="#e1e0d9" stroke-width="1"/>
+<text x="575.5" y="342" font-size="11" text-anchor="middle" fill="#52514e">75%</text>
+<line x1="696.0" y1="78" x2="696.0" y2="326" stroke="#e1e0d9" stroke-width="1"/>
+<text x="696.0" y="342" font-size="11" text-anchor="middle" fill="#52514e">100%</text>
+<text x="202" y="98.0" font-size="13" text-anchor="end" fill="#0b0b0b">검색 적중률 (n=21)</text>
+<path d="M214.0,86.0 H577.2 A4,4 0 0 1 581.2,90.0 V98.0 A4,4 0 0 1 577.2,102.0 H214.0 Z" fill="#2a78d6"/>
+<text x="587.2" y="98" font-size="12" fill="#0b0b0b">76.2%</text>
+<text x="202" y="128.0" font-size="13" text-anchor="end" fill="#0b0b0b">검색 조건 충족률 (n=15)</text>
+<path d="M214.0,116.0 H426.9 A4,4 0 0 1 430.9,120.0 V128.0 A4,4 0 0 1 426.9,132.0 H214.0 Z" fill="#2a78d6"/>
+<text x="436.9" y="128" font-size="12" fill="#0b0b0b">45.0%</text>
+<text x="202" y="158.0" font-size="13" text-anchor="end" fill="#0b0b0b">답변 정확도 (n=43)</text>
+<path d="M214.0,146.0 H557.5 A4,4 0 0 1 561.5,150.0 V158.0 A4,4 0 0 1 557.5,162.0 H214.0 Z" fill="#2a78d6"/>
+<text x="567.5" y="158" font-size="12" fill="#0b0b0b">72.1%</text>
+<text x="202" y="188.0" font-size="13" text-anchor="end" fill="#0b0b0b">근거 충실도 (n=43)</text>
+<path d="M214.0,176.0 H636.0 A4,4 0 0 1 640.0,180.0 V188.0 A4,4 0 0 1 636.0,192.0 H214.0 Z" fill="#2a78d6"/>
+<text x="646.0" y="188" font-size="12" fill="#0b0b0b">88.4%</text>
+<text x="202" y="218.0" font-size="13" text-anchor="end" fill="#0b0b0b">답변 조건 충족률 (n=15)</text>
+<path d="M214.0,206.0 H595.6 A4,4 0 0 1 599.6,210.0 V218.0 A4,4 0 0 1 595.6,222.0 H214.0 Z" fill="#2a78d6"/>
+<text x="605.6" y="218" font-size="12" fill="#0b0b0b">80.0%</text>
+<text x="202" y="248.0" font-size="13" text-anchor="end" fill="#0b0b0b">근거 없는 날짜 없음 (n=43)</text>
+<path d="M214.0,236.0 H658.4 A4,4 0 0 1 662.4,240.0 V248.0 A4,4 0 0 1 658.4,252.0 H214.0 Z" fill="#2a78d6"/>
+<text x="668.4" y="248" font-size="12" fill="#0b0b0b">93.0%</text>
+<text x="202" y="278.0" font-size="13" text-anchor="end" fill="#0b0b0b">근거 없는 가격·시각 없음 (n=43)</text>
+<path d="M214.0,266.0 H680.8 A4,4 0 0 1 684.8,270.0 V278.0 A4,4 0 0 1 680.8,282.0 H214.0 Z" fill="#2a78d6"/>
+<text x="690.8" y="278" font-size="12" fill="#0b0b0b">97.7%</text>
+<text x="202" y="308.0" font-size="13" text-anchor="end" fill="#0b0b0b">필수 정보 포함 (n=10)</text>
+<path d="M214.0,296.0 H643.8 A4,4 0 0 1 647.8,300.0 V308.0 A4,4 0 0 1 643.8,312.0 H214.0 Z" fill="#2a78d6"/>
+<text x="653.8" y="308" font-size="12" fill="#0b0b0b">90.0%</text>
+</svg>

@@ -10,6 +10,7 @@
 | 커뮤니티 | `routers/posts.py` | `schemas/post.py` | `Post`, `Comment`, `PostLike` |
 | 여행 기록 | `routers/travel_records.py` | `schemas/travel_record.py` | `TravelRecord` |
 | 챗봇 | `routers/chat.py` | `schemas/chat.py` | `chat_service.py`, `Location`, `Post`, `FestivalSchedule` |
+| 챗봇 평가 | - | - | `scripts/chat_eval/`, `data/eval/chat_eval_set.json` |
 | AI Insight | `routers/ai_insights.py` | `schemas/ai_insight.py` | `ai_insight_service.py` |
 | 메타 | `routers/meta.py` | 관련 응답 Schema | `Location` 통계 query |
 | 기본 Insight | `routers/insights.py` | `schemas/insight.py` | DB query |

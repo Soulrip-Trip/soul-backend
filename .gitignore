@@ -4,5 +4,7 @@ __pycache__/
 venv/
 .env
 .pytest_cache/
+eval_results/
 .vscode/
 .DS_Store
+*.env*

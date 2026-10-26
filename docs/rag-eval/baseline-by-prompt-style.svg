@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="372" viewBox="0 0 760 372" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+<title id="t">프롬프트 스타일별 지표</title>
+<desc id="d">long (n=9): 검색 조건 충족률 41%, 답변 정확도 56%, 근거 충실도 67% / medium (n=19): 검색 조건 충족률 34%, 답변 정확도 89%, 근거 충실도 100% / short (n=8): 검색 조건 충족률 69%, 답변 정확도 75%, 근거 충실도 100% / structured (n=7): 검색 조건 충족률 48%, 답변 정확도 43%, 근거 충실도 71%</desc>
+<rect x="0.5" y="0.5" width="759" height="371" rx="10" fill="#fcfcfb" stroke="#e1e0d9"/>
+<text x="24" y="34" font-size="16" font-weight="600" fill="#0b0b0b">프롬프트 스타일별 지표</text>
+<text x="24" y="54" font-size="12" fill="#52514e">dev 43문항 · 챗봇 gpt-4.1-mini · 채점 openai:gpt-4.1-mini</text>
+<rect x="24" y="64" width="10" height="10" rx="2" fill="#2a78d6"/>
+<text x="40" y="73" font-size="12" fill="#52514e">검색 조건 충족률</text>
+<rect x="138" y="64" width="10" height="10" rx="2" fill="#eb6834"/>
+<text x="154" y="73" font-size="12" fill="#52514e">답변 정확도</text>
+<rect x="228" y="64" width="10" height="10" rx="2" fill="#1baf7a"/>
+<text x="244" y="73" font-size="12" fill="#52514e">근거 충실도</text>
+<line x1="214.0" y1="78" x2="214.0" y2="350" stroke="#c3c2b7" stroke-width="1"/>
+<text x="214.0" y="366" font-size="11" text-anchor="middle" fill="#52514e">0%</text>
+<line x1="334.5" y1="78" x2="334.5" y2="350" stroke="#e1e0d9" stroke-width="1"/>
+<text x="334.5" y="366" font-size="11" text-anchor="middle" fill="#52514e">25%</text>
+<line x1="455.0" y1="78" x2="455.0" y2="350" stroke="#e1e0d9" stroke-width="1"/>
+<text x="455.0" y="366" font-size="11" text-anchor="middle" fill="#52514e">50%</text>
+<line x1="575.5" y1="78" x2="575.5" y2="350" stroke="#e1e0d9" stroke-width="1"/>
+<text x="575.5" y="366" font-size="11" text-anchor="middle" fill="#52514e">75%</text>
+<line x1="696.0" y1="78" x2="696.0" y2="350" stroke="#e1e0d9" stroke-width="1"/>
+<text x="696.0" y="366" font-size="11" text-anchor="middle" fill="#52514e">100%</text>
+<text x="202" y="116.0" font-size="13" text-anchor="end" fill="#0b0b0b">long (n=9)</text>
+<path d="M214.0,86.0 H405.8 A4,4 0 0 1 409.8,90.0 V98.0 A4,4 0 0 1 405.8,102.0 H214.0 Z" fill="#2a78d6"/>
+<text x="415.8" y="98" font-size="12" fill="#0b0b0b">40.6%</text>
+<path d="M214.0,104.0 H477.8 A4,4 0 0 1 481.8,108.0 V116.0 A4,4 0 0 1 477.8,120.0 H214.0 Z" fill="#eb6834"/>
+<text x="487.8" y="116" font-size="12" fill="#0b0b0b">55.6%</text>
+<path d="M214.0,122.0 H531.3 A4,4 0 0 1 535.3,126.0 V134.0 A4,4 0 0 1 531.3,138.0 H214.0 Z" fill="#1baf7a"/>
+<text x="541.3" y="134" font-size="12" fill="#0b0b0b">66.7%</text>
+<text x="202" y="182.0" font-size="13" text-anchor="end" fill="#0b0b0b">medium (n=19)</text>
+<path d="M214.0,152.0 H375.7 A4,4 0 0 1 379.7,156.0 V164.0 A4,4 0 0 1 375.7,168.0 H214.0 Z" fill="#2a78d6"/>
+<text x="385.7" y="164" font-size="12" fill="#0b0b0b">34.4%</text>
+<path d="M214.0,170.0 H641.3 A4,4 0 0 1 645.3,174.0 V182.0 A4,4 0 0 1 641.3,186.0 H214.0 Z" fill="#eb6834"/>
+<text x="651.3" y="182" font-size="12" fill="#0b0b0b">89.5%</text>
+<path d="M214.0,188.0 H692.0 A4,4 0 0 1 696.0,192.0 V200.0 A4,4 0 0 1 692.0,204.0 H214.0 Z" fill="#1baf7a"/>
+<text x="702.0" y="200" font-size="12" fill="#0b0b0b">100.0%</text>
+<text x="202" y="248.0" font-size="13" text-anchor="end" fill="#0b0b0b">short (n=8)</text>
+<path d="M214.0,218.0 H541.4 A4,4 0 0 1 545.4,222.0 V230.0 A4,4 0 0 1 541.4,234.0 H214.0 Z" fill="#2a78d6"/>
+<text x="551.4" y="230" font-size="12" fill="#0b0b0b">68.8%</text>
+<path d="M214.0,236.0 H571.5 A4,4 0 0 1 575.5,240.0 V248.0 A4,4 0 0 1 571.5,252.0 H214.0 Z" fill="#eb6834"/>
+<text x="581.5" y="248" font-size="12" fill="#0b0b0b">75.0%</text>
+<path d="M214.0,254.0 H692.0 A4,4 0 0 1 696.0,258.0 V266.0 A4,4 0 0 1 692.0,270.0 H214.0 Z" fill="#1baf7a"/>
+<text x="702.0" y="266" font-size="12" fill="#0b0b0b">100.0%</text>
+<text x="202" y="314.0" font-size="13" text-anchor="end" fill="#0b0b0b">structured (n=7)</text>
+<path d="M214.0,284.0 H438.9 A4,4 0 0 1 442.9,288.0 V296.0 A4,4 0 0 1 438.9,300.0 H214.0 Z" fill="#2a78d6"/>
+<text x="448.9" y="296" font-size="12" fill="#0b0b0b">47.5%</text>
+<path d="M214.0,302.0 H416.6 A4,4 0 0 1 420.6,306.0 V314.0 A4,4 0 0 1 416.6,318.0 H214.0 Z" fill="#eb6834"/>
+<text x="426.6" y="314" font-size="12" fill="#0b0b0b">42.9%</text>
+<path d="M214.0,320.0 H554.3 A4,4 0 0 1 558.3,324.0 V332.0 A4,4 0 0 1 554.3,336.0 H214.0 Z" fill="#1baf7a"/>
+<text x="564.3" y="332" font-size="12" fill="#0b0b0b">71.4%</text>
+</svg>
