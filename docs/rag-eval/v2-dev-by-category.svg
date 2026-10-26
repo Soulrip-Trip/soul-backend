@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="636" viewBox="0 0 760 636" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
 <title id="t">답변 정확도 · 질문 카테고리별</title>
-<desc id="d">attribute_unavailable (n=7): baseline 100%, improved 100% / community (n=2): baseline 100%, improved 100% / course (n=3): baseline 100%, improved 100% / district_category (n=11): baseline 45%, improved 82% / festival_date (n=4): baseline 25%, improved 100% / festival_info (n=1): baseline 100%, improved 100% / followup (n=2): baseline 100%, improved 100% / no_data (n=1): baseline 100%, improved 100% / out_of_scope (n=2): baseline 100%, improved 100% / place_lookup (n=7): baseline 100%, improved 100% / recommend_open (n=3): baseline 0%, improved 67%</desc>
+<desc id="d">attribute_unavailable (n=7): baseline-v2 86%, merged-v2 71% / community (n=2): baseline-v2 100%, merged-v2 100% / course (n=3): baseline-v2 100%, merged-v2 100% / district_category (n=11): baseline-v2 64%, merged-v2 91% / festival_date (n=4): baseline-v2 75%, merged-v2 100% / festival_info (n=1): baseline-v2 100%, merged-v2 100% / followup (n=2): baseline-v2 100%, merged-v2 100% / no_data (n=1): baseline-v2 100%, merged-v2 100% / out_of_scope (n=2): baseline-v2 100%, merged-v2 100% / place_lookup (n=7): baseline-v2 100%, merged-v2 100% / recommend_open (n=3): baseline-v2 0%, merged-v2 67%</desc>
 <rect x="0.5" y="0.5" width="759" height="635" rx="10" fill="#fcfcfb" stroke="#e1e0d9"/>
 <text x="24" y="34" font-size="16" font-weight="600" fill="#0b0b0b">답변 정확도 · 질문 카테고리별</text>
 <text x="24" y="54" font-size="12" fill="#52514e">dev 43문항 · 챗봇 gpt-4.1-mini · 채점 openai:gpt-4.1-mini</text>
 <rect x="24" y="64" width="10" height="10" rx="2" fill="#2a78d6"/>
-<text x="40" y="73" font-size="12" fill="#52514e">baseline</text>
-<rect x="130" y="64" width="10" height="10" rx="2" fill="#eb6834"/>
-<text x="146" y="73" font-size="12" fill="#52514e">improved</text>
+<text x="40" y="73" font-size="12" fill="#52514e">baseline-v2</text>
+<rect x="154" y="64" width="10" height="10" rx="2" fill="#eb6834"/>
+<text x="170" y="73" font-size="12" fill="#52514e">merged-v2</text>
 <line x1="214.0" y1="78" x2="214.0" y2="614" stroke="#c3c2b7" stroke-width="1"/>
 <text x="214.0" y="630" font-size="11" text-anchor="middle" fill="#52514e">0%</text>
 <line x1="334.5" y1="78" x2="334.5" y2="614" stroke="#e1e0d9" stroke-width="1"/>
@@ -19,10 +19,10 @@
 <line x1="696.0" y1="78" x2="696.0" y2="614" stroke="#e1e0d9" stroke-width="1"/>
 <text x="696.0" y="630" font-size="11" text-anchor="middle" fill="#52514e">100%</text>
 <text x="202" y="107.0" font-size="13" text-anchor="end" fill="#0b0b0b">attribute_unavailable (n=7)</text>
-<path d="M214.0,86.0 H692.0 A4,4 0 0 1 696.0,90.0 V98.0 A4,4 0 0 1 692.0,102.0 H214.0 Z" fill="#2a78d6"/>
-<text x="702.0" y="98" font-size="12" fill="#0b0b0b">100.0%</text>
-<path d="M214.0,104.0 H692.0 A4,4 0 0 1 696.0,108.0 V116.0 A4,4 0 0 1 692.0,120.0 H214.0 Z" fill="#eb6834"/>
-<text x="702.0" y="116" font-size="12" fill="#0b0b0b">100.0%</text>
+<path d="M214.0,86.0 H623.1 A4,4 0 0 1 627.1,90.0 V98.0 A4,4 0 0 1 623.1,102.0 H214.0 Z" fill="#2a78d6"/>
+<text x="633.1" y="98" font-size="12" fill="#0b0b0b">85.7%</text>
+<path d="M214.0,104.0 H554.3 A4,4 0 0 1 558.3,108.0 V116.0 A4,4 0 0 1 554.3,120.0 H214.0 Z" fill="#eb6834"/>
+<text x="564.3" y="116" font-size="12" fill="#0b0b0b">71.4%</text>
 <text x="202" y="155.0" font-size="13" text-anchor="end" fill="#0b0b0b">community (n=2)</text>
 <path d="M214.0,134.0 H692.0 A4,4 0 0 1 696.0,138.0 V146.0 A4,4 0 0 1 692.0,150.0 H214.0 Z" fill="#2a78d6"/>
 <text x="702.0" y="146" font-size="12" fill="#0b0b0b">100.0%</text>
@@ -34,13 +34,13 @@
 <path d="M214.0,200.0 H692.0 A4,4 0 0 1 696.0,204.0 V212.0 A4,4 0 0 1 692.0,216.0 H214.0 Z" fill="#eb6834"/>
 <text x="702.0" y="212" font-size="12" fill="#0b0b0b">100.0%</text>
 <text x="202" y="251.0" font-size="13" text-anchor="end" fill="#0b0b0b">district_category (n=11)</text>
-<path d="M214.0,230.0 H429.1 A4,4 0 0 1 433.1,234.0 V242.0 A4,4 0 0 1 429.1,246.0 H214.0 Z" fill="#2a78d6"/>
-<text x="439.1" y="242" font-size="12" fill="#0b0b0b">45.5%</text>
-<path d="M214.0,248.0 H604.4 A4,4 0 0 1 608.4,252.0 V260.0 A4,4 0 0 1 604.4,264.0 H214.0 Z" fill="#eb6834"/>
-<text x="614.4" y="260" font-size="12" fill="#0b0b0b">81.8%</text>
+<path d="M214.0,230.0 H516.7 A4,4 0 0 1 520.7,234.0 V242.0 A4,4 0 0 1 516.7,246.0 H214.0 Z" fill="#2a78d6"/>
+<text x="526.7" y="242" font-size="12" fill="#0b0b0b">63.6%</text>
+<path d="M214.0,248.0 H648.2 A4,4 0 0 1 652.2,252.0 V260.0 A4,4 0 0 1 648.2,264.0 H214.0 Z" fill="#eb6834"/>
+<text x="658.2" y="260" font-size="12" fill="#0b0b0b">90.9%</text>
 <text x="202" y="299.0" font-size="13" text-anchor="end" fill="#0b0b0b">festival_date (n=4)</text>
-<path d="M214.0,278.0 H330.5 A4,4 0 0 1 334.5,282.0 V290.0 A4,4 0 0 1 330.5,294.0 H214.0 Z" fill="#2a78d6"/>
-<text x="340.5" y="290" font-size="12" fill="#0b0b0b">25.0%</text>
+<path d="M214.0,278.0 H571.5 A4,4 0 0 1 575.5,282.0 V290.0 A4,4 0 0 1 571.5,294.0 H214.0 Z" fill="#2a78d6"/>
+<text x="581.5" y="290" font-size="12" fill="#0b0b0b">75.0%</text>
 <path d="M214.0,296.0 H692.0 A4,4 0 0 1 696.0,300.0 V308.0 A4,4 0 0 1 692.0,312.0 H214.0 Z" fill="#eb6834"/>
 <text x="702.0" y="308" font-size="12" fill="#0b0b0b">100.0%</text>
 <text x="202" y="347.0" font-size="13" text-anchor="end" fill="#0b0b0b">festival_info (n=1)</text>

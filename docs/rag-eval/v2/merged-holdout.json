@@ -1,0 +1,1153 @@
+{
+  "meta": {
+    "tag": "merged-v2",
+    "split": "holdout",
+    "mode": "full",
+    "git_sha": "7e19238",
+    "app_dirty": true,
+    "system_prompt_sha": "cc4231d7",
+    "chat_model": "gpt-4.1-mini",
+    "judge": "openai:gpt-4.1-mini",
+    "questions": 22,
+    "experiment": "merged-v2-holdout-full-4957246c"
+  },
+  "summary": {
+    "source_hit": {
+      "mean": 1.0,
+      "n": 10
+    },
+    "source_condition_rate": {
+      "mean": 1.0,
+      "n": 8
+    },
+    "answer_correctness": {
+      "mean": 0.8636363636363636,
+      "n": 22
+    },
+    "faithfulness": {
+      "mean": 0.9545454545454546,
+      "n": 22
+    },
+    "answer_condition": {
+      "mean": 0.875,
+      "n": 8
+    },
+    "no_unsupported_date": {
+      "mean": 1.0,
+      "n": 22
+    },
+    "no_unsupported_price_hours": {
+      "mean": 1.0,
+      "n": 22
+    },
+    "must_include": {
+      "mean": 1.0,
+      "n": 5
+    },
+    "language_match": {
+      "mean": 1.0,
+      "n": 22
+    },
+    "used_ai": {
+      "mean": 1.0,
+      "n": 22
+    }
+  },
+  "rows": [
+    {
+      "split": "holdout",
+      "item_id": "Q04",
+      "persona": "solo_foreigner_ja",
+      "category": "place_lookup",
+      "language": "ja",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "ソウルの国立中央博物館はどこにありますか？",
+      "answer": "ソウルの国立中央博物館は、서울특별시 용산구 서빙고로 137（용산동6가）にあります。電話番号は02-2077-9000です。",
+      "sources": [
+        "국립중앙박물관",
+        "국립중앙박물관 어린이박물관",
+        "국립중앙박물관 전통염료식물원",
+        "국립중앙박물관 어린이박물관",
+        "국립중앙박물관",
+        "국립중앙박물관 극장 용"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": 1.0,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": 1.0,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "장소 1/1",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "기대 키워드(any) ['용산', '龍山', 'ヨンサン'] / 포함 ['용산']",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ja hangul=16 kana=13 han=11 latin=0",
+        "answer_correctness": "ok",
+        "faithfulness": "ok",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q07",
+      "persona": "solo_student",
+      "category": "place_lookup",
+      "language": "ko",
+      "prompt_style": "short",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "DDP 위치",
+      "answer": "DDP(동대문디자인플라자)의 위치는 서울특별시 중구 을지로 281 (을지로7가)입니다.",
+      "sources": [
+        "DDP 건축투어",
+        "DDP 루프탑투어",
+        "DDP 어린이 디자인 페스티벌",
+        "서울라이트 DDP 겨울",
+        "DDP 가을축제: 디자인 라운지",
+        "동대문디자인플라자(DDP)",
+        "B the B",
+        "DDP(동대문디자인플라자)",
+        "2025 서울관광 실태조사(외국인) 보고서",
+        "세종대학교 대양홀"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": 1.0,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": 1.0,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "장소 1/1",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "기대 키워드(any) ['중구'] / 포함 ['중구']",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=30 kana=0 han=0 latin=3",
+        "answer_correctness": "ok",
+        "faithfulness": "ok",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q09",
+      "persona": "solo_planner",
+      "category": "place_lookup",
+      "language": "ko",
+      "prompt_style": "structured",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "[여행자] 혼자, 서울 처음\n[목적] 서울식물원 방문\n[질문] 1) 서울식물원의 위치(자치구) 2) 인근에서 함께 볼 수 있는 장소가 데이터에 있는지\n[조건] 데이터에 없는 정보는 '없음'으로 표기",
+      "answer": "1) 서울식물원의 위치는 서울특별시 강서구 마곡동입니다.\n2) 서울식물원 인근에서 함께 볼 수 있는 장소에 대한 데이터는 없습니다.",
+      "sources": [
+        "차 없는 잠수교 뚜벅뚜벅축제",
+        "숭인근린공원",
+        "서울식물원",
+        "금천하모니축제",
+        "케미스트릿 팝업",
+        "가정의 달, 싱글을 위한 혼자 먹는 밥상 코스",
+        "혼자만의 시간이 필요할 때 떠나는 도심 속 나홀로 여행",
+        "혼밥하기 편한 광장시장 메뉴 추천해요",
+        "2025 서울관광 실태조사(외국인) 통계표",
+        "서울로봇인공지능과학관",
+        "17717"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": 1.0,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": 1.0,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "장소 1/1",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "기대 키워드(any) ['강서구'] / 포함 ['강서구']",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=51 kana=0 han=0 latin=0",
+        "answer_correctness": "서울식물원의 위치를 강서구로 정확히 답했고, 인근 장소에 대한 정보가 없음을 명확히 표기함.",
+        "faithfulness": "서울식물원의 위치를 강서구로 정확히 답했고, 인근 장소에 대한 정보가 없음을 명확히 표기함.",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q10",
+      "persona": "family_parents",
+      "category": "place_lookup",
+      "language": "ko",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "non_solo",
+      "message": "부모님 모시고 전쟁기념관 가볼까 하는데 주소 알려줘",
+      "answer": "전쟁기념관 주소는 서울특별시 용산구 이태원로 29입니다. 전화번호는 02-709-3114입니다.",
+      "sources": [
+        "전쟁기념관",
+        "전쟁기념관",
+        "일자산허브천문공원",
+        "전쟁기념관"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": 1.0,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": 1.0,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "장소 1/1",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "기대 키워드(any) ['용산구'] / 포함 ['용산구']",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=31 kana=0 han=0 latin=0",
+        "answer_correctness": "전쟁기념관 주소와 전화번호가 모두 컨텍스트에 정확히 일치함",
+        "faithfulness": "전쟁기념관 주소와 전화번호가 모두 컨텍스트에 정확히 일치함",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q16",
+      "persona": "solo_student",
+      "category": "district_category",
+      "language": "ko",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "성북구에서 혼자 둘러볼 만한 관광지 추천해줘",
+      "answer": "성북구에서 혼자 둘러볼 만한 관광지는 다음과 같습니다.\n\n- 이종석별장: 서울특별시 성북구 성북로 131 (성북동)\n- 장수마을: 서울특별시 성북구 삼선교로4길 186 (삼선동1가)\n- 성북역사문화공원: 서울특별시 성북구 성북로21길 31 (성북동)\n- 방우산장: 서울특별시 성북구 성북로 66 (성북동)\n- 성북동고택북촌산책길 (길상사~수연산방): 서울특별시 성북구 선잠로5길 68 (성북동)\n- 돈암동아리랑고개: 서울특별시 성북구 북악산로 809 (정릉동)\n- 적조사(서울): 서울특별시 성북구 흥천사길 49-23 (돈암동)\n- 개운사(서울): 서울특별시 성북구 개운사길 73 (안암동5가)\n- 심우장: 서울특별시 성북구 성북로29길 24 (성북동 222-1)  \n  - 만해 한용운이 일제강점기 머물던 집이며 화장실 있음, 주차 불가\n\n저장된 데이터에 각 장소별 자세한 영업시간, 입장료 등 정보는 없습니다. 필요하면 문의 전화번호를 알려드릴 수 있으나, 관광지 대부분 문의 번호는 없습니다.",
+      "sources": [
+        "이종석별장",
+        "장수마을",
+        "성북역사문화공원",
+        "방우산장",
+        "성북동고택북촌산책길",
+        "돈암동아리랑고개",
+        "적조사(서울)",
+        "개운사(서울)",
+        "성북동길(기본)",
+        "심우장",
+        "성북문화원"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": null,
+        "source_condition_rate": 1.0,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": 1
+      },
+      "comments": {
+        "source_hit": "기대 출처 없음",
+        "source_condition_rate": "조건 {'district': '성북구', 'content_type': '관광지'} / 위반: 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=307 kana=0 han=0 latin=0",
+        "answer_correctness": "성북구 관광지 목록만 제시했고, 없는 정보는 제공하지 않아 기준에 부합함",
+        "faithfulness": "성북구 관광지 목록만 제시했고, 없는 정보는 제공하지 않아 기준에 부합함",
+        "answer_condition": "성북구 관광지 목록만 제시했고, 없는 정보는 제공하지 않아 기준에 부합함"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q19",
+      "persona": "solo_foreigner_zh",
+      "category": "district_category",
+      "language": "zh",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "我一个人旅行，想在松坡区找一些景点，请推荐。",
+      "answer": "您一个人旅行，松坡区的旅游景点有：\n\n1. 석촌호수（石村湖） - 地址：서울특별시 송파구 잠실동\n2. 롯데월드 어드벤처（乐天世界冒险乐园） - 地址：서울특별시 송파구 올림픽로 240\n3. 신선경과 류인호 묘역（神仙经与柳仁浩墓园） - 地址：서울특별시 송파구 오금로 363 (오금동)\n4. 방이동 생태경관 보전지역（方二洞生态景观保护区） - 地址：서울특별시 송파구 동남로 397 (방이동)\n5. 서울 방이동 고분군（首尔方二洞古墓群） - 地址：서울특별시 송파구 오금로 219 (방이동)\n6. 천마근린공원（天马邻里公园） - 地址：서울특별시 송파구 성내천로35길 53 (마천동)\n7. 코코몽키즈랜드 송파점（Cocomong Kidsland松坡店） - 地址：서울특별시 송파구 충민로 66 (문정동)\n8. 한방스파 여용국（韩方SPA 여용국） - 地址：서울특별시 송파구 석촌호수로12길 60 (잠실동) 2층\n\n此外，您还可以考虑松坡区的特色步行路线，如：\n- 송파구 추억의 송파장길（松坡回忆松坡长街）约3.7公里，步行约1.5小时，起点：문정 로데오거리，终点：잠실여고 앞 분식거리\n- 송파구 책읽는 역사길（松坡区阅读历史路）约5.3公里，步行约3小时，起点：글샘공원，终点：성내천\n\n这些景点和步行路线路线均适合松坡区单人旅游。",
+      "sources": [
+        "석촌호수",
+        "롯데월드 어드벤처",
+        "신선경과 류인호 묘역",
+        "방이동 생태경관 보전지역",
+        "서울 방이동 고분군",
+        "천마근린공원",
+        "코코몽키즈랜드 송파점",
+        "한방스파 여용국",
+        "송파구 추억의 송파장길",
+        "송파구 책읽는 역사길",
+        "가락시장"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": null,
+        "source_condition_rate": 1.0,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": 1
+      },
+      "comments": {
+        "source_hit": "기대 출처 없음",
+        "source_condition_rate": "조건 {'district': '송파구', 'content_type': '관광지'} / 위반: 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=zh hangul=221 kana=0 han=160 latin=19",
+        "answer_correctness": "ok",
+        "faithfulness": "ok",
+        "answer_condition": "ok"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q20",
+      "persona": "friends",
+      "category": "district_category",
+      "language": "ko",
+      "prompt_style": "short",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "non_solo",
+      "message": "중구 박물관 같은 곳",
+      "answer": "중구에 박물관 같은 문화시설로는 다음 장소들이 있습니다.\n\n- 종이나라박물관: 서울특별시 중구 장충단로 166 (장충동1가) 2층\n- 동국대학교 박물관: 서울특별시 중구 필동로1길 30 (필동3가)\n- 한국은행 화폐박물관: 서울특별시 중구 남대문로 39 (남대문로3가)\n- 우표박물관: 서울특별시 중구 소공로 70 (충무로1가)\n- 한국금융사박물관: 서울특별시 중구 세종대로 135-5 (태평로1가)  \n  전화: 02-2151-7677  \n  운영시간: 10:00 ~ 18:00 (입장 마감 17:00), 월~토요일 운영, 일요일·공휴일 휴무  \n  웹사이트: https://www.beautifulshinhan.co.kr/\n- 국립극장 공연예술박물관: 서울특별시 중구 장충단로 59 (장충동2가)\n- 배재학당역사박물관: 서울특별시 중구 서소문로11길 19 (정동)\n- 초전섬유·퀼트박물관: 서울특별시 중구 퇴계로18길 66 (남산동1가)  \n  전화: 0507-1387-4075  \n  운영시간: 10:00~17:00 (폐관 30분 전까지 입장 가능), 월~금요일 운영, 토~일요일 및 공휴일 휴무\n\n이화박물관은 중구 정동길 26에 있고, 무료로 운영되며 전화번호는 02-2175-1964입니다.\n\n다른 사항(입장료, 예약 방법 등)은 저장된 데이터에 정보가 없습니다.",
+      "sources": [
+        "종이나라박물관",
+        "동국대학교 박물관",
+        "한국은행 화폐박물관",
+        "우표박물관",
+        "한국금융사박물관",
+        "국립극장 공연예술박물관",
+        "배재학당역사박물관",
+        "초전섬유·퀼트박물관",
+        "이화여자대학교 자연사박물관",
+        "이화박물관",
+        "한국금융사박물관"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": null,
+        "source_condition_rate": 1.0,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": 1
+      },
+      "comments": {
+        "source_hit": "기대 출처 없음",
+        "source_condition_rate": "조건 {'district': '중구'} / 위반: 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=325 kana=0 han=0 latin=28",
+        "answer_correctness": "중구에 있는 박물관들만 정확히 제시하였고, 제공된 정보 외에 없는 내용은 언급하지 않아 기준에 부합함",
+        "faithfulness": "중구에 있는 박물관들만 정확히 제시하였고, 제공된 정보 외에 없는 내용은 언급하지 않아 기준에 부합함",
+        "answer_condition": "중구에 있는 박물관들만 정확히 제시하였고, 제공된 정보 외에 없는 내용은 언급하지 않아 기준에 부합함"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q23",
+      "persona": "solo_foreigner_ja",
+      "category": "district_category",
+      "language": "ja",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "ソウルの麻浦区で一人で楽しめるレジャー施設を教えてください。",
+      "answer": "ソウルの麻浦区で一人で楽しめるレジャー施設として、以下の場所があります。\n\n- 名称: 와이키키레저\n- 種類: レ포츠（レジャー）\n- 住所: 서울특별시 마포구 마포나루길 332 (상암동)\n- 電話番号: なし\n\nまた、文化施設として\n- 名称: 마포문화원\n- 種類: 文化원（文化施設）\n- 住所: 서울 마포구 백범로 227 공덕동자치회관\n- 電話番号: 02-312-1100\n- 無料\n\n演奏を楽しめる場所として\n- 名称: 콘서트홀 나누\n- 種類: 공연장（コンサートホール）\n- 住所: 서울특별시 마포구 망원로 66 지하1층\n- 電話番号: なし\n\n以上の施設が検索されたデータにあります。",
+      "sources": [
+        "와이키키레저",
+        "마포문화원",
+        "콘서트홀 나누",
+        "일등식당"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": null,
+        "source_condition_rate": 1.0,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 0,
+        "faithfulness": 1,
+        "answer_condition": 0
+      },
+      "comments": {
+        "source_hit": "기대 출처 없음",
+        "source_condition_rate": "조건 {'district': '마포구', 'content_type': '레포츠'} / 위반: 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ja hangul=68 kana=64 han=65 latin=0",
+        "answer_correctness": "레포츠 시설만 제시해야 하는데 문화시설과 공연장도 포함되어 조건을 충족하지 못함",
+        "faithfulness": "레포츠 시설만 제시해야 하는데 문화시설과 공연장도 포함되어 조건을 충족하지 못함",
+        "answer_condition": "레포츠 시설만 제시해야 하는데 문화시설과 공연장도 포함되어 조건을 충족하지 못함"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q28",
+      "persona": "solo_office_worker",
+      "category": "festival_date",
+      "language": "ko",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "허준축제 언제 해? 날짜 알려줘",
+      "answer": "허준축제 일정에 대한 저장된 데이터에 정보가 없습니다.",
+      "sources": [
+        "허준축제",
+        "구립구산동도서관마을",
+        "허준근린공원",
+        "허준박물관"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": 1.0,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "장소 1/1",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=23 kana=0 han=0 latin=0",
+        "answer_correctness": "허준축제 일정 정보가 컨텍스트에 없으므로 일정 정보가 없다고 답한 것은 적절함",
+        "faithfulness": "허준축제 일정 정보가 컨텍스트에 없으므로 일정 정보가 없다고 답한 것은 적절함",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q32",
+      "persona": "solo_foodie",
+      "category": "festival_info",
+      "language": "ko",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "경복궁 별빛야행 문의 전화번호 알려줘",
+      "answer": "경복궁 별빛야행 문의 전화번호는 1522-2295입니다.",
+      "sources": [
+        "경복궁 별빛야행",
+        "경복궁",
+        "경복궁 생과방",
+        "다이소 경복궁역점",
+        "앤더슨벨 경복궁 플래그쉽 스토어",
+        "올리브영 경복궁역점",
+        "한복남 경복궁점",
+        "경복궁 북쪽마을 북촌 즐기기",
+        "구로기적의도서관",
+        "구로구립꿈나무어린이도서관",
+        "경복궁 집옥재"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": 1.0,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": 1.0,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "장소 1/1",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "기대 키워드(any) ['1522-2295'] / 포함 ['1522-2295']",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=17 kana=0 han=0 latin=0",
+        "answer_correctness": "경복궁 별빛야행 문의 전화번호 1522-2295가 정확히 답변됨",
+        "faithfulness": "경복궁 별빛야행 문의 전화번호 1522-2295가 정확히 답변됨",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q34",
+      "persona": "friends",
+      "category": "festival_date",
+      "language": "ko",
+      "prompt_style": "long",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "non_solo",
+      "message": "친구 둘이랑 같이 이번 주말에 마포구에서 열리는 축제를 보러 가고 싶어. 마포구 축제 중에 뭐가 있는지 알려주고, 언제 하는지도 알려줘.",
+      "answer": "마포구에서 친구 둘과 함께 볼 수 있는 축제는 다음과 같습니다.\n\n1. 2026 글로벌 크리에이터 아트페어  \n   - 주소: 서울특별시 마포구 동교동  \n   - 전화: 010-7621-3714  \n   - 축제 일정: 저장된 데이터에 정보가 없습니다.\n\n2. 서울와우북페스티벌  \n   - 주소: 서울특별시 마포구 양화로 72 (서교동, 서울생활문화센터 서교)  \n   - 전화: 070-8826-5207  \n   - 축제 일정: 저장된 데이터에 정보가 없습니다.\n\n3. 서울억새축제  \n   - 주소: 서울특별시 마포구 하늘공원로 95 (상암동)  \n   - 전화: 02-300-5567  \n   - 축제 일정: 저장된 데이터에 정보가 없습니다.\n\n4. 그린칩스 페스티벌  \n   - 주소: 서울특별시 마포구 성미산로 151-1 (연남동)  \n   - 전화: 02-3143-7366  \n   - 축제 일정: 저장된 데이터에 정보가 없습니다.\n\n5. 연남동 주민화합 대축제  \n   - 주소: 서울특별시 마포구 동교로 233 (연남동, 이트라이브연남빌딩) 일대  \n   - 전화: 02-3153-6860  \n   - 축제 일정: 저장된 데이터에 정보가 없습니다.\n\n6. 서울프린지페스티벌2025  \n   - 주소: 서울특별시 마포구 월드컵북로 75 (성산동)  \n   - 전화: 02-325-8150  \n   - 축제 일정: 저장된 데이터에 정보가 없습니다.\n\n또한, 마포문화재단에서 주최하는 제11회 마포 M 클래식 축제가 2026년 6월 4일부터 12월 23일까지 마포아트센터 아트홀맥, 플레이맥에서 열리니 참고하세요.  \n- 전화 문의는 제공된 정보에 없고, 일부 프로그램별 일정과 요금은 다릅니다.  \n\n요약하면, 마포구의 여러 축제는 있지만 이번 주말 구체적인 일정 정보는 저장된 데이터에 없습니다.",
+      "sources": [
+        "2026 글로벌 크리에이터 아트페어",
+        "서울와우북페스티벌",
+        "서울억새축제",
+        "그린칩스 페스티벌",
+        "연남동 주민화합 대축제",
+        "서울프린지페스티벌2025",
+        "주말 전시 같이 보실 분 있나요?",
+        "한국불교역사 문화기념관",
+        "17717",
+        "[마포문화재단] 제11회 마포 M 클래식 축제"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": null,
+        "source_condition_rate": 1.0,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": 1
+      },
+      "comments": {
+        "source_hit": "기대 출처 없음",
+        "source_condition_rate": "조건 {'district': '마포구', 'content_type': '축제공연행사'} / 위반: 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=445 kana=0 han=0 latin=1",
+        "answer_correctness": "마포구 축제만 제시했고, 일정 정보가 없는 경우 명확히 알렸으며, 날짜는 근거에 있는 정보만 사용함.",
+        "faithfulness": "마포구 축제만 제시했고, 일정 정보가 없는 경우 명확히 알렸으며, 날짜는 근거에 있는 정보만 사용함.",
+        "answer_condition": "마포구 축제만 제시했고, 일정 정보가 없는 경우 명확히 알렸으며, 날짜는 근거에 있는 정보만 사용함."
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q38",
+      "persona": "solo_senior",
+      "category": "attribute_unavailable",
+      "language": "ko",
+      "prompt_style": "long",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "혼자 여행 중인 60대인데 무릎이 안 좋아요. 덕수궁에 계단이 많은지, 쉬어갈 벤치는 충분한지, 입장료는 얼마인지 알려주세요. 정확한 정보가 없으면 없다고 말해 주세요.",
+      "answer": "덕수궁에 대해 검색된 데이터에 따르면,\n- 계단이 많은지 여부와 쉬어갈 벤치가 충분한지에 대한 정보는 저장된 데이터에 없습니다.\n- 입장료에 대한 구체적인 금액 정보 또한 저장된 데이터에 없습니다.\n따라서, 계단 수, 벤치 수, 입장료에 관한 정확한 정보는 알려 드릴 수 없습니다.",
+      "sources": [
+        "후암동108계단",
+        "덕수궁",
+        "혼자만의 시간이 필요할 때 떠나는 도심 속 나홀로 여행",
+        "가정의 달, 싱글을 위한 혼자 먹는 밥상 코스",
+        "덕수궁 밤의 석조전",
+        "덕수궁돈덕전",
+        "덕수궁 대한문",
+        "국립현대미술관 덕수궁",
+        "2025 서울관광 실태조사(외국인) 통계표",
+        "마루아트센터",
+        "2025 서울관광 실태조사(내국인) 통계표"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": 1.0,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "장소 1/1",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=109 kana=0 han=0 latin=0",
+        "answer_correctness": "덕수궁의 계단 수, 벤치 수, 입장료 정보가 컨텍스트에 없으므로 없다고 명확히 답변함",
+        "faithfulness": "덕수궁의 계단 수, 벤치 수, 입장료 정보가 컨텍스트에 없으므로 없다고 명확히 답변함",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q40",
+      "persona": "solo_foreigner_en",
+      "category": "attribute_unavailable",
+      "language": "en",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "What are the opening hours of the National Museum of Korea, and is it free?",
+      "answer": "The National Museum of Korea's opening hours are as follows: Monday, Tuesday, Thursday, Friday, and Sunday from 09:30 to 17:30; Wednesday and Saturday from 09:30 to 21:00. The outdoor exhibition garden is open from 07:00 to 22:00. The museum is open daily except January 1st, Lunar New Year's Day, Chuseok Day, and the first Monday of March, June, September, and December (when the permanent and special exhibition halls close). Admission to the National Museum of Korea is free.",
+      "sources": [
+        "국립중앙박물관",
+        "국립중앙박물관 어린이박물관",
+        "국립중앙박물관 전통염료식물원",
+        "국립중앙박물관 어린이박물관",
+        "국립중앙박물관",
+        "국립중앙박물관"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": 1.0,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "장소 1/1",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=en hangul=0 kana=0 han=0 latin=351",
+        "answer_correctness": "ok",
+        "faithfulness": "ok",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q45",
+      "persona": "solo_photographer",
+      "category": "recommend_open",
+      "language": "ko",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "혼자 사진 찍으러 다니기 좋은 서울 장소 추천해줘",
+      "answer": "혼자 사진 찍으러 다니기 좋은 서울 장소로는 다음을 추천합니다.\n\n1. 서울시립 사진미술관 (문화시설)  \n   주소: 서울특별시 도봉구 마들로13길 68 (창동)  \n\n2. 남산골 한옥마을  \n   주소: 서울 중구 퇴계로34길 28 (남산골한옥마을)  \n   전화: 02-6358-5533  \n   운영시간 등 자세한 정보는 https://www.hanokmaeul.co.kr/ 에서 확인하세요.\n\n3. 3.1운동길A (종로구)  \n   주소 시작점: 서울특별시 종로구 율곡로3길 49 (옛 천도교 중앙총부 터)  \n   길 이름: 3.1운동길A (총길이 2km, 소요시간 약 2시간)\n\n4. 3.1운동길B (종로구)  \n   주소 시작점: 서울특별시 종로구 종로 54 (보신각)  \n   길 이름: 3.1운동길B (총길이 1km, 소요시간 약 2시간)\n\n이 중에서 선택하시면 혼자 사진 찍으면서 돌아다니기에 적합할 것입니다.",
+      "sources": [
+        "서울시립 사진미술관",
+        "가정의 달, 싱글을 위한 혼자 먹는 밥상 코스",
+        "혼자만의 시간이 필요할 때 떠나는 도심 속 나홀로 여행",
+        "남산골 한옥마을",
+        "유리지공예관",
+        "3.1운동길A"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": null,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 0,
+        "faithfulness": 0,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "기대 출처 없음",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=217 kana=0 han=0 latin=30",
+        "answer_correctness": "사진 명소라는 근거가 없는데 사진 찍기 좋은 장소로 단정하여 추천함; 3.1운동길A와 3.1운동길B는 사진 찍기 좋은 장소라는 근거가 없음",
+        "faithfulness": "사진 명소라는 근거가 없는데 사진 찍기 좋은 장소로 단정하여 추천함; 3.1운동길A와 3.1운동길B는 사진 찍기 좋은 장소라는 근거가 없음",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q47",
+      "persona": "solo_foreigner_fr",
+      "category": "recommend_open",
+      "language": "fr",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "Je voyage seul à Séoul. Pouvez-vous me recommander un endroit agréable pour se promener ?",
+      "answer": "Pour une promenade agréable en solo à Séoul, je vous recommande le parcours \"한글과 벽화 코스\" dans le district de Yongsan. Ce chemin touristique fait environ 2,4 km, avec un temps de marche estimé à 40 minutes. Il commence au Musée national du Hangeul (국립한글박물관), situé à 서울특별시 용산구 서빙고로 139, et se termine au parc du fleuve Han (한강공원), en passant par le quartier de fresques murales de Seobinggo-dong. \n\nLe musée national du Hangeul offre l'histoire et l'origine de l'alphabet coréen ainsi que divers programmes. Le trajet inclut la découverte de fresques murales créées par des jeunes et offre la possibilité d'admirer les ponts illuminés du fleuve Han. \n\nTéléphone du musée : 02-2077-9000 (pour informations).  \nCe parcours est donc une belle option pour une balade culturelle et urbaine à pied seul.",
+      "sources": [
+        "혼자만의 시간이 필요할 때 떠나는 도심 속 나홀로 여행",
+        "가정의 달, 싱글을 위한 혼자 먹는 밥상 코스",
+        "2026 농촌여행 페스티벌 (제14회 도농교류의 날 기념)",
+        "서울시티투어 버스를 이용하면 서울여행이 쉬워진다",
+        "낮이 좋아? 밤이 좋아? 서울의 주경, 야경 여행코스",
+        "미술관과 아쿠아리움으로 떠나는 힐링 여행",
+        "3·1운동의 정신을 느껴보는 서울 여행",
+        "청와대 앞 코스 돌아보기",
+        "가을단풍길(월드컵로)",
+        "서울로7017",
+        "국립중앙박물관"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": null,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "기대 출처 없음",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=fr hangul=30 kana=0 han=0 latin=563",
+        "answer_correctness": "ok",
+        "faithfulness": "ok",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q48",
+      "persona": "solo_foreigner_es",
+      "category": "recommend_open",
+      "language": "es",
+      "prompt_style": "short",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "lugares para ir solo en Seúl",
+      "answer": "En Seúl, según los datos disponibles, hay dos cursos de viaje recomendados para ir solo:\n\n1. \"가정의 달, 싱글을 위한 혼자 먹는 밥상 코스\" (Curso de comida para solteros en el mes de la familia)  \n   - Tipo: Curso de viaje  \n   - Dirección: No disponible  \n   - Teléfono: No disponible\n\n2. \"혼자만의 시간이 필요할 때 떠나는 도심 속 나홀로 여행\" (Viaje solo en la ciudad cuando necesitas tiempo para ti mismo)  \n   - Tipo: Curso de viaje  \n   - Dirección: No disponible  \n   - Teléfono: No disponible\n\nNo hay información sobre horarios, precios ni otros detalles para estos lugares.",
+      "sources": [
+        "가정의 달, 싱글을 위한 혼자 먹는 밥상 코스",
+        "혼자만의 시간이 필요할 때 떠나는 도심 속 나홀로 여행",
+        "2025 서울관광 실태조사(외국인) 통계표",
+        "2025 서울관광 실태조사(내국인) 통계표",
+        "2025 서울관광 실태조사(내국인) 보고서"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": null,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "기대 출처 없음",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=es hangul=39 kana=0 han=0 latin=339",
+        "answer_correctness": "ok",
+        "faithfulness": "ok",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q51",
+      "persona": "solo_planner",
+      "category": "course",
+      "language": "ko",
+      "prompt_style": "short",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "서촌 맛산책 코스",
+      "answer": "서촌 맛산책 코스에 대해 저장된 데이터에 따르면 '서촌에서 즐기는 즐거운 맛산책'이라는 여행코스가 있습니다. 다만 구체적인 경로나 방문할 맛집 등 세부 정보는 제공되지 않았습니다. 도움이 필요하시면 말씀해 주세요.",
+      "sources": [
+        "서촌에서 즐기는 즐거운 맛산책",
+        "코스코",
+        "서촌게스트하우스",
+        "ETC서울 서촌",
+        "해칭룸 서촌",
+        "이솝 서촌",
+        "서촌마을",
+        "하이드 인 바인 서촌",
+        "가을단풍길(월드컵로)",
+        "경희궁",
+        "한강수변길"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": 1.0,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "장소(any) 적중",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=88 kana=0 han=0 latin=0",
+        "answer_correctness": "서촌 맛산책 코스에 대해 구체적인 경로나 맛집 정보가 없음을 명확히 안내하여 평가 기준을 충족함",
+        "faithfulness": "서촌 맛산책 코스에 대해 구체적인 경로나 맛집 정보가 없음을 명확히 안내하여 평가 기준을 충족함",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q54",
+      "persona": "solo_first_timer",
+      "category": "community",
+      "language": "ko",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "주말에 전시 같이 볼 동행 구하는 글 있어?",
+      "answer": "주말에 전시 같이 볼 동행 구하는 글이 있습니다. 커뮤니티 글에 \"주말 전시 같이 보실 분 있나요? 토요일 오후에 종로구 문화시설을 둘러볼 예정입니다.\"라는 내용이 있습니다.",
+      "sources": [
+        "지구하임 홍대점",
+        "한양도성유적전시관",
+        "북한인권전시실",
+        "궁산 땅굴 역사전시관",
+        "헌법재판소전시관",
+        "서울도시건축전시관",
+        "양화진홀 전시관",
+        "주말 전시 같이 보실 분 있나요?",
+        "백범김구기념관",
+        "[구립증산도서관] 가족열람실 10월 북큐레이션 [같이 떠나자, 예술의 세계로]",
+        "2025 서울관광 실태조사(내국인) 보고서"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": 1.0,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "게시글 1/1",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=68 kana=0 han=0 latin=0",
+        "answer_correctness": "주말 전시 같이 볼 동행 구하는 글이 커뮤니티 글에 명확히 존재하며, 토요일 오후 종로구 문화시설 방문 예정임이 정확히 언급되어 있음.",
+        "faithfulness": "주말 전시 같이 볼 동행 구하는 글이 커뮤니티 글에 명확히 존재하며, 토요일 오후 종로구 문화시설 방문 예정임이 정확히 언급되어 있음.",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q57",
+      "persona": "solo_planner",
+      "category": "followup",
+      "language": "ko",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "그 근처 레포츠 시설은?",
+      "answer": "서울숲 근처 성동구에 있는 레포츠 시설은 다음과 같습니다.\n\n- 응봉산 암벽등반공원 (서울특별시 성동구 독서당로60길 13-1, 응봉동)\n- 송정제방길 (서울특별시 성동구 송정동)\n- 청계천 자전거도로 (서울특별시 성동구 마장동 294)\n\n전화번호는 없습니다.",
+      "sources": [
+        "응봉산 암벽등반공원",
+        "송정제방길",
+        "청계천 자전거도로",
+        "2024 서울관광 실태조사(내국인) 최종보고서",
+        "한예극장",
+        "2025 서울관광 실태조사(내국인) 보고서"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": null,
+        "source_condition_rate": 1.0,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": 1
+      },
+      "comments": {
+        "source_hit": "기대 출처 없음",
+        "source_condition_rate": "조건 {'district': '성동구', 'content_type': '레포츠'} / 위반: 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ko hangul=93 kana=0 han=0 latin=0",
+        "answer_correctness": "서울숲이 있는 성동구의 레포츠 시설만 정확히 제시함",
+        "faithfulness": "서울숲이 있는 성동구의 레포츠 시설만 정확히 제시함",
+        "answer_condition": "서울숲이 있는 성동구의 레포츠 시설만 정확히 제시함"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q58",
+      "persona": "solo_foreigner_en",
+      "category": "followup",
+      "language": "en",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "Are there any festivals nearby?",
+      "answer": "Yes, there are festivals near Gyeongbokgung in Jongno-gu:\n\n- 문학주간 2026, located at 서울특별시 종로구 대학로 104 (동숭동), phone: 070-7954-1369\n- 서울국제작가축제, located at 서울특별시 종로구 인사동9길 26 (견지동), phone: 02-6339-1232\n- D.FESTA 거리공연축제, located at 서울특별시 종로구 대학로 104 (동숭동), phone: 02-741-4188\n- 2026 우리 임산물 숲푸드 대축제, located at 서울특별시 종로구 세종대로 175 (세종로), phone: 02-545-0639\n- 궁중문화축전, located at 서울특별시 종로구 사직로 161, phone: 1522-2295\n- 2026 귀어귀촌 어촌관광 한마당, located at 서울특별시 종로구 세종대로 지하172 (세종로) 광화문광장 놀이마당, phone: 02-701-3812\n- 국악공연 진연, located at 서울특별시 종로구 인사동5길 10 (인사동), phone: 02-953-0515\n- 2026 서울거리공연 구석구석라이브, located at 서울특별시 종로구 세종대로 지하172 (세종로), phone: 02-2088-7218\n\nFestival schedules are not provided in the data.",
+      "sources": [
+        "문학주간 2026",
+        "서울국제작가축제",
+        "D.FESTA 거리공연축제",
+        "2026 우리 임산물 숲푸드 대축제",
+        "궁중문화축전",
+        "2026 귀어귀촌 어촌관광 한마당",
+        "국악공연 진연",
+        "2026 서울거리공연 구석구석라이브",
+        "옥상정원 (The Roof)",
+        "한예극장",
+        "아크원 갤러리"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": null,
+        "source_condition_rate": 1.0,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": 1
+      },
+      "comments": {
+        "source_hit": "기대 출처 없음",
+        "source_condition_rate": "조건 {'district': '종로구', 'content_type': '축제공연행사'} / 위반: 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=en hangul=192 kana=0 han=0 latin=205",
+        "answer_correctness": "ok",
+        "faithfulness": "ok",
+        "answer_condition": "ok"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q61",
+      "persona": "solo_foreigner_en",
+      "category": "no_data",
+      "language": "en",
+      "prompt_style": "medium",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "Recommend some good Korean BBQ restaurants for one person in Seoul.",
+      "answer": "The search data does not include Korean BBQ restaurants specifically for one person in Seoul. However, these Korean BBQ places with available details are in the database:\n\n1. 역전회관 (Yeokjeon Hoegwan)  \n   - Address: 04155 서울 마포구 토정로37길 47 (염리동)  \n   - Phone: 02-703-0019  \n   - Operating hours: Weekdays 11:00–22:00 (break 15:00–17:00), weekends 11:00–21:30 (break 15:00–16:30)  \n   - Subway: Line 5 Mapo Station Exit 2, 459m away  \n   - Tags: bulgogi, crispy bulgogi  \n\n2. 만포면옥 (Manpo Myeonok)  \n   - Address: 03336 서울 은평구 연서로 171 (갈현동, 동연빌딩)  \n   - Phone: 0507-1377-3917  \n   - Operating hours: 11:00–21:00 daily  \n   - Subway: Line 6 Gusan Station Exit 4, 260m away  \n   - Tags: bulgogi  \n\nNo explicit information on whether these restaurants accommodate solo diners. Other entries with keywords for one-person or meat places are non-restaurant spots or lack specifics.  \n\nIf you want Korean BBQ focused on solo diners, none are specifically listed. You may consider 역전회관 or 만포면옥, but please verify their solo-dining suitability separately.",
+      "sources": [
+        "양화한강공원",
+        "노원기차마을",
+        "아이파크몰 용산점",
+        "테크노마트 강변점",
+        "효사정",
+        "이봉창 역사울림관",
+        "허브체험공원",
+        "남산자락숲길",
+        "역전회관",
+        "만포면옥",
+        "2024 서울관광 실태조사(외국인) 통계표"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": null,
+        "source_condition_rate": null,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 0,
+        "faithfulness": 1,
+        "answer_condition": null
+      },
+      "comments": {
+        "source_hit": "기대 출처 없음",
+        "source_condition_rate": "조건 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=en hangul=43 kana=0 han=0 latin=627",
+        "answer_correctness": "질문에 1인 고기집 추천을 요청했으나, 답변에서 1인 고기집 정보가 없음을 명확히 하지 않고 식당을 추천함. 따라서 정확성 기준 미충족.",
+        "faithfulness": "질문에 1인 고기집 추천을 요청했으나, 답변에서 1인 고기집 정보가 없음을 명확히 하지 않고 식당을 추천함. 따라서 정확성 기준 미충족.",
+        "answer_condition": "조건 없음"
+      }
+    },
+    {
+      "split": "holdout",
+      "item_id": "Q65",
+      "persona": "solo_foreigner_ja",
+      "category": "attribute_unavailable",
+      "language": "ja",
+      "prompt_style": "long",
+      "dataset_split": [
+        "holdout"
+      ],
+      "traveler_type": "solo",
+      "message": "一人でソウル旅行をする予定です。江南区でホテルを探していますが、一泊の値段と朝食が付いているかどうか教えてください。",
+      "answer": "江南区のホテルについて、一泊の値段および朝食の有無に関する情報は、提供されたデータにはありません。江南区の宿泊施設一覧は以下の通りです。\n\n- ホテル アンテルーム ソウル（서울특별시 강남구 도산대로 153）\n- 朝鮮パレス ソウル 江南（서울특별시 강남구 테헤란로 231）\n- L7 江南 バイ ロッテホテル（서울특별시 강남구 테헤란로 415）\n- パーク ハイアット ソウル（서울특별시 강남구 테헤란로 606）\n- ホテルユリアン（서울특별시 강남구 삼성로96길 20）\n- グラッド 江南 コエックスセンター（서울특별시 강남구 테헤란로 610）\n- パティオセブン ホテル（서울특별시 강남구 논현로 736）\n- ホテル サムジョン（서울특별시 강남구 봉은사로 150）\n\nこれらのホテルの料金や朝食の付帯情報は保存されたデータにありません。ご了承ください。",
+      "sources": [
+        "호텔 안테룸 서울",
+        "조선 팰리스 서울 강남",
+        "L7 강남 바이 롯데호텔",
+        "파크 하얏트 서울",
+        "호텔유리앤",
+        "글래드 강남 코엑스센터",
+        "파티오세븐 호텔",
+        "호텔 삼정",
+        "2025 서울관광 실태조사(외국인) 통계표",
+        "2025 서울관광 실태조사(내국인) 보고서",
+        "2025 서울관광 실태조사(내국인) 통계표"
+      ],
+      "error": null,
+      "scores": {
+        "source_hit": null,
+        "source_condition_rate": 1.0,
+        "used_ai": 1.0,
+        "must_include": null,
+        "no_unsupported_date": 1.0,
+        "no_unsupported_price_hours": 1.0,
+        "language_match": 1.0,
+        "answer_correctness": 1,
+        "faithfulness": 1,
+        "answer_condition": 1
+      },
+      "comments": {
+        "source_hit": "기대 출처 없음",
+        "source_condition_rate": "조건 {'district': '강남구', 'content_type': '숙박'} / 위반: 없음",
+        "used_ai": "attempts=1",
+        "must_include": "필수 키워드 없음",
+        "no_unsupported_date": "근거 없는 날짜 없음",
+        "no_unsupported_price_hours": "근거 없는 가격/시각 없음",
+        "language_match": "language=ja hangul=95 kana=139 han=48 latin=1",
+        "answer_correctness": "江南区のホテル名と住所を正確に示し、料金と朝食の情報がないことを明確に伝えているため、評価基準を満たしている。",
+        "faithfulness": "江南区のホテル名と住所を正確に示し、料金と朝食の情報がないことを明確に伝えているため、評価基準を満たしている。",
+        "answer_condition": "江南区のホテル名と住所を正確に示し、料金と朝食の情報がないことを明確に伝えているため、評価基準を満たしている。"
+      }
+    }
+  ]
+}

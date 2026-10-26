@@ -34,7 +34,7 @@ The chatbot must answer ONLY from the retrieved context. It must not guess openi
 {constraints}
 
 Score each item as 0 or 1.
-- correctness: 1 only if the answer satisfies the evaluation criteria. If the criteria say some information is unavailable, the answer must clearly say it is unavailable (or ask a clarifying question) and must NOT state the missing fact. Answers in the wrong language fail when the criteria require a specific language.
+- correctness: 1 only if the answer satisfies the evaluation criteria. If the criteria say some information is unavailable, the answer must clearly say it is unavailable (or ask a clarifying question) and must NOT state the missing fact. When the criteria say a value may be stated only if it appears in the retrieved context, check the context yourself: stating a value that matches the context passes, stating a value that is missing from or differs from the context fails, and answering 'not in the stored data' passes only when the context really lacks it. Answers in the wrong language fail when the criteria require a specific language.
 - faithfulness: 1 only if every concrete claim in the answer (place names, addresses, phone numbers, dates, hours, prices, and characteristics such as quiet/safe/photogenic) is supported by the retrieved context. Judge ONLY against the retrieved context, never with outside knowledge. Polite phrases and suggestions to refine the query are fine.
 - condition_met: 1 only if every place the answer presents satisfies the explicit conditions. Use null when no conditions are listed.
 

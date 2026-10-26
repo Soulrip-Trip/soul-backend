@@ -72,7 +72,8 @@ SYSTEM_PROMPT = (
     "너는 Soulrip 서울 혼행 여행 도우미다. 반드시 제공된 '검색된 데이터'만 근거로 답한다. 규칙은 다음과 같다.\n"
     "1) 사용자가 말한 지역·유형 조건에 맞는 장소만 제시하고, 조건에 맞는 장소가 데이터에 없으면 없다고 답한다.\n"
     "2) 영업시간·가격·입장료·행사 일정·날짜·소요 시간·이동 시간·예약 방법·시설 정보가 데이터에 없으면 추측하지 말고 "
-    "'저장된 데이터에 정보가 없다'고 답한다. 시간표나 표를 요청받아도 데이터에 없는 시각과 날짜는 만들지 않고 '정보 없음'으로 적는다.\n"
+    "'저장된 데이터에 정보가 없다'고 답한다. 시간표나 표를 요청받아도 데이터에 없는 시각과 날짜는 만들지 않고 '정보 없음'으로 적는다. "
+    "'다음 달'·'이번 주말' 같은 상대 표현을 실제 연월일로 바꿔 말하지 않고, 실태조사의 평균 지출 같은 통계를 특정 장소의 입장료·가격처럼 제시하지 않는다.\n"
     "3) 장소의 분위기·혼자 가기 좋음·조용함·안전·접근성·사진 명소 같은 특성은 데이터에 없으면 말하지 않는다. "
     "장소는 이름·유형·주소처럼 제공된 정보로만 소개한다.\n"
     "4) 데이터에 문의 전화번호가 있으면 그대로 알려준다.\n"
@@ -240,15 +241,15 @@ def _search_locations(
     residual = [term for term in all_terms if not _is_constraint_word(term)]
 
     note = ""
-    # 지시어("거기", "그 근처")뿐이고 지역이 없으면 이전 대화의 지역을 이어받는다.
-    if not districts and not residual:
-        districts = _history_districts(history)
-        if districts:
-            note = "지역은 이전 대화에서 이어받음"
-
     frequencies = _term_frequencies(db, all_terms)
     residual_terms = _usable_terms(residual, frequencies)
     fallback_terms = _usable_terms(all_terms, frequencies)
+
+    # 지시어("거기", "그 근처")나 DB에 없는 군더더기 단어("있나요")뿐이고 지역이 없으면 이전 대화의 지역을 이어받는다.
+    if not districts and not residual_terms:
+        districts = _history_districts(history)
+        if districts:
+            note = "지역은 이전 대화에서 이어받음"
 
     def fetch(*where) -> list[Location]:
         return list(db.scalars(select(Location).where(*where).order_by(*LOCATION_ORDER).limit(CANDIDATE_LIMIT)))

@@ -32,7 +32,6 @@ _HOURS_PATTERNS = (
     re.compile(r"(?<!\d)\d{1,2}\s*(?:a\.?m\.?|p\.?m\.?)(?![a-z])", re.IGNORECASE),
     re.compile(r"(?:午前|午後)\s*\d{1,2}\s*時|\d{1,2}\s*時"),
     re.compile(r"[월화수목금토일]요일\s*(?:은\s*)?(?:휴무|휴관|정기\s*휴)"),
-    re.compile(r"closed\s+on\s+\w+", re.IGNORECASE),
 )
 
 
@@ -42,6 +41,19 @@ def _result(key: str, score: float | None, comment: str = "") -> dict:
 
 def _skipped(key: str) -> dict:
     return _result(key, None, "OpenAI 호출 실패(fallback 답변)라 제외")
+
+
+def _spellings(token: str) -> list[str]:
+    """같은 시각의 표기 변형. 예: '07:00'은 근거에 '7시', '오전 7시'로 적혀 있어도 같은 값이다."""
+    squashed = _squash(token)
+    match = re.fullmatch(r"(\d{1,2}):(\d{2})", squashed)
+    if not match:
+        return [squashed]
+    hour, minute = int(match.group(1)), int(match.group(2))
+    suffix = "시" if minute == 0 else f"시{minute}분"
+    variants = [squashed, f"{hour}{suffix}", f"{hour:02d}{suffix}"]
+    variants.append(f"오후{hour - 12}{suffix}" if hour > 12 else f"오전{hour}{suffix}")
+    return variants
 
 
 def _squash(text: str) -> str:
@@ -156,8 +168,9 @@ def no_unsupported_price_hours(inputs: dict, outputs: dict) -> dict:
     unsupported = []
     for pattern in (*_PRICE_PATTERNS, *_HOURS_PATTERNS):
         for match in pattern.finditer(outputs["answer"]):
-            if _squash(match.group(0)) not in evidence:
-                unsupported.append(match.group(0))
+            token = match.group(0)
+            if not any(variant in evidence for variant in _spellings(token)):
+                unsupported.append(token)
     return _result(
         "no_unsupported_price_hours",
         float(not unsupported),

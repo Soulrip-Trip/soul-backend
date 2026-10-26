@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+<title id="t">검색 조건 충족률 · 프롬프트 스타일별</title>
+<desc id="d">long (n=4): baseline-v2 41%, merged-v2 100% / medium (n=4): baseline-v2 31%, merged-v2 81% / short (n=2): baseline-v2 69%, merged-v2 100% / structured (n=5): baseline-v2 48%, merged-v2 100%</desc>
+<rect x="0.5" y="0.5" width="759" height="299" rx="10" fill="#fcfcfb" stroke="#e1e0d9"/>
+<text x="24" y="34" font-size="16" font-weight="600" fill="#0b0b0b">검색 조건 충족률 · 프롬프트 스타일별</text>
+<text x="24" y="54" font-size="12" fill="#52514e">dev 43문항 · 챗봇 gpt-4.1-mini · 채점 openai:gpt-4.1-mini</text>
+<rect x="24" y="64" width="10" height="10" rx="2" fill="#2a78d6"/>
+<text x="40" y="73" font-size="12" fill="#52514e">baseline-v2</text>
+<rect x="154" y="64" width="10" height="10" rx="2" fill="#eb6834"/>
+<text x="170" y="73" font-size="12" fill="#52514e">merged-v2</text>
+<line x1="214.0" y1="78" x2="214.0" y2="278" stroke="#c3c2b7" stroke-width="1"/>
+<text x="214.0" y="294" font-size="11" text-anchor="middle" fill="#52514e">0%</text>
+<line x1="334.5" y1="78" x2="334.5" y2="278" stroke="#e1e0d9" stroke-width="1"/>
+<text x="334.5" y="294" font-size="11" text-anchor="middle" fill="#52514e">25%</text>
+<line x1="455.0" y1="78" x2="455.0" y2="278" stroke="#e1e0d9" stroke-width="1"/>
+<text x="455.0" y="294" font-size="11" text-anchor="middle" fill="#52514e">50%</text>
+<line x1="575.5" y1="78" x2="575.5" y2="278" stroke="#e1e0d9" stroke-width="1"/>
+<text x="575.5" y="294" font-size="11" text-anchor="middle" fill="#52514e">75%</text>
+<line x1="696.0" y1="78" x2="696.0" y2="278" stroke="#e1e0d9" stroke-width="1"/>
+<text x="696.0" y="294" font-size="11" text-anchor="middle" fill="#52514e">100%</text>
+<text x="202" y="107.0" font-size="13" text-anchor="end" fill="#0b0b0b">long (n=4)</text>
+<path d="M214.0,86.0 H405.8 A4,4 0 0 1 409.8,90.0 V98.0 A4,4 0 0 1 405.8,102.0 H214.0 Z" fill="#2a78d6"/>
+<text x="415.8" y="98" font-size="12" fill="#0b0b0b">40.6%</text>
+<path d="M214.0,104.0 H692.0 A4,4 0 0 1 696.0,108.0 V116.0 A4,4 0 0 1 692.0,120.0 H214.0 Z" fill="#eb6834"/>
+<text x="702.0" y="116" font-size="12" fill="#0b0b0b">100.0%</text>
+<text x="202" y="155.0" font-size="13" text-anchor="end" fill="#0b0b0b">medium (n=4)</text>
+<path d="M214.0,134.0 H360.6 A4,4 0 0 1 364.6,138.0 V146.0 A4,4 0 0 1 360.6,150.0 H214.0 Z" fill="#2a78d6"/>
+<text x="370.6" y="146" font-size="12" fill="#0b0b0b">31.2%</text>
+<path d="M214.0,152.0 H601.6 A4,4 0 0 1 605.6,156.0 V164.0 A4,4 0 0 1 601.6,168.0 H214.0 Z" fill="#eb6834"/>
+<text x="611.6" y="164" font-size="12" fill="#0b0b0b">81.2%</text>
+<text x="202" y="203.0" font-size="13" text-anchor="end" fill="#0b0b0b">short (n=2)</text>
+<path d="M214.0,182.0 H541.4 A4,4 0 0 1 545.4,186.0 V194.0 A4,4 0 0 1 541.4,198.0 H214.0 Z" fill="#2a78d6"/>
+<text x="551.4" y="194" font-size="12" fill="#0b0b0b">68.8%</text>
+<path d="M214.0,200.0 H692.0 A4,4 0 0 1 696.0,204.0 V212.0 A4,4 0 0 1 692.0,216.0 H214.0 Z" fill="#eb6834"/>
+<text x="702.0" y="212" font-size="12" fill="#0b0b0b">100.0%</text>
+<text x="202" y="251.0" font-size="13" text-anchor="end" fill="#0b0b0b">structured (n=5)</text>
+<path d="M214.0,230.0 H438.9 A4,4 0 0 1 442.9,234.0 V242.0 A4,4 0 0 1 438.9,246.0 H214.0 Z" fill="#2a78d6"/>
+<text x="448.9" y="242" font-size="12" fill="#0b0b0b">47.5%</text>
+<path d="M214.0,248.0 H692.0 A4,4 0 0 1 696.0,252.0 V260.0 A4,4 0 0 1 692.0,264.0 H214.0 Z" fill="#eb6834"/>
+<text x="702.0" y="260" font-size="12" fill="#0b0b0b">100.0%</text>
+</svg>
